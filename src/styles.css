@@ -1,0 +1,117 @@
+.navbar-inverse {
+    border:none;
+    background: #00c6ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   /* background-color: #0404B4;*/
+    color: white;                
+    height: 25px;
+    font-size: 25px;
+    font-size: 8px;
+    box-shadow: 3px 3px 3px 3px grey;
+}
+.navbar-fixed-bottom{
+   
+    border-width: 0px;
+   /* background: #FAFAFA;*/
+    box-shadow: 1px 1px 1px 1px #009CFF;
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+}
+.negro{
+    color:black;
+}
+div.container {
+    width: 85%;
+    border-radius: 8px;
+    background-color: #FAFAFA;
+}
+.crear{
+    font-size:15px;
+    border: double;
+}
+.margen{
+    margin-top: 1cm;
+    padding-bottom: 1cm;
+}
+.titulo{
+    
+    font-size: 60px;
+    color:#DBA901;
+    font-family: 'Caesar Dressing';
+    text-align: center;
+    
+    margin-bottom: 2cm;
+
+}
+.margenImagen{
+   margin-top: 2cm;
+   padding-bottom: 1cm;
+    
+}
+.letra{
+    font-family: 'Sniglet';
+    font-size: 18px;
+}
+
+.letra2{
+    font-family: 'Sniglet';
+    font-size: 25px;
+    text-align: center;
+    
+}
+
+.user{
+    color:white;
+    font-size: 35px;
+    font-family: 'Caesar Dressing';
+    text-align: center;
+    height:50px;
+
+}
+.sub{
+    /*color:#DBA901;*/
+    color: #009CFF;
+    font-size: 55px;
+    font-family: 'Caesar Dressing';
+    text-align: center;
+    height:50px;
+    margin-bottom: 10px;
+}
+
+.margenLeft{
+    margin-left: 3cm;
+
+}
+.subtitulo{
+    
+    font-size: 35px;
+    color:#454141;
+    font-family: 'Sniglet';
+    text-align: center;
+
+}
+.bordes{
+    border-style: solid;
+    border-radius: 8px;
+    border-color: #00C2FF;
+    border-width: 2px;
+}
+.bordes2{
+    border-style: double;
+    border-radius: 8px;
+    border-color: #009CFF;
+    border-width: 1px;
+}
+li{
+    border-width: 0px;
+}
+.boton{
+    /*color:#DBA901;*/
+    color: #009CFF;
+    font-size: 25px;
+    font-family: 'Caesar Dressing';
+    text-align: left;
+}

@@ -1,0 +1,22 @@
+<br>
+<div class="sub">CURSO: {{curso.nombre}}</div>
+<hr>
+<div class="col-sm-4"  >
+
+</div>
+
+<div class="col-sm-4">
+  <div class="subtitulo">Estudiantes</div>
+  <br>
+  <ul class="list-group letra2 bordes" *ngFor="let e of estudiantes; let i = index">
+    
+    <li class="list-group-item ">
+      {{e.nombre}}
+      <a><span class="glyphicon glyphicon-cog"></span></a>
+    </li>
+    
+  </ul>
+</div>
+
+<div class="col-sm-4">
+</div>
