@@ -9,7 +9,7 @@ import {Actividad} from '../model/actividad.model';
 
 @Injectable()
 export class ActividadService extends RestClient<Actividad> {
-    baseURL = "http://localhost:8080/Zeuss-Servidor/webresources/actividad/";
+    baseURL = "http://174.138.36.65:8080/Zeuss/webresources/actividad/";
 
     constructor(http: Http) {
         super(http);

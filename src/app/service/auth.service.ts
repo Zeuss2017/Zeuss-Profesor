@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService  {
-    baseURL = "http://localhost:8080/Zeuss-Servidor/webresources/auth/";
+    baseURL = "http://174.138.36.65:8080/Zeuss/webresources/auth/";
 
     constructor(private http: Http) {
     }

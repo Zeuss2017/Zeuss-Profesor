@@ -9,7 +9,7 @@ import {Estudiante} from '../model/estudiante.model';
 
 @Injectable()
 export class EstudianteService extends RestClient<Estudiante> {
-    baseURL = "http://localhost:8080/Zeuss-Servidor/webresources/estudiante/";
+    baseURL = "http://174.138.36.65:8080/Zeuss/webresources/estudiante/";
 
     constructor(http: Http) {
         super(http);
