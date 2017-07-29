@@ -47,19 +47,18 @@ export class CursoEditarComponent implements OnInit {
             console.log("save " + " " + JSON.stringify(this.curso));
             this.service.create(this.curso)
                 .subscribe(
-                idCurso => this.curso.id = idCurso,
+                idCurso => {
+                    this.curso.id = idCurso
+                      this.service.asociarProCurso(this.curso.id,this.currentUser.username)
+                        .subscribe(
+                        success => this.router.navigate(['/curso/list']),
+                        error => this.errorMessage = "Opción no permitida"
+                        );
+                },
                 //success => this.router.navigate(['/curso/list']),
                 error => this.errorMessage = "Opción no permitida"
                 );
-           setTimeout(() => {
-            
-               this.service.asociarProCurso(this.curso.id,this.currentUser.username)
-                .subscribe(
-                success => this.router.navigate(['/curso/list']),
-                error => this.errorMessage = "Opción no permitida"
-                );
-               }, 500);
-            
+           
         }
     }
 

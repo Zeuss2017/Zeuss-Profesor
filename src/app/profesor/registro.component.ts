@@ -56,10 +56,8 @@ export class RegistroComponent implements OnInit {
     verificarUsername(){
         this.serviceProfesor.veriUsername(this.profesor.username)
             .subscribe(
-            retrievedUsername => this.sepuede = retrievedUsername,
-            error => this.errorMessage = "Opción no permitida"
-            );
-        setTimeout(() => {
+            retrievedUsername => {
+                this.sepuede = retrievedUsername;
                 console.log(this.sepuede);
                 if(this.sepuede==1){
                     this.message="";
@@ -70,10 +68,9 @@ export class RegistroComponent implements OnInit {
                     this.message="Escoja otro usuario";
                     this.existeUser=false;
                 }
-        }, 500);
-        
-    }
-    
-    
+            },
+            error => this.errorMessage = "Opción no permitida"
+            );
+    }   
 }
 

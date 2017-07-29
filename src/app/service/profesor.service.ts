@@ -9,7 +9,7 @@ import {Profesor} from '../model/profesor.model';
 
 @Injectable()
 export class ProfesorService extends RestClient<Profesor> {
-    baseURL = "http://localhost:8080/Zeuss-Servidor/webresources/profesor/";
+    baseURL = "http://174.138.36.65:8080/Zeuss/webresources/profesor/";
 
     constructor(http: Http) {
         super(http);
