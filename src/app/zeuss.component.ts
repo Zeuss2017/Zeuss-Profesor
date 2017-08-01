@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './service/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
-
+/**
+ * Componente inicial de Zeuss
+ * @param {esUser} esUser variable que guarda si hay un usuario logeado
+ */
 @Component({
     moduleId: module.id,
     selector: 'zeuss',
@@ -20,19 +23,22 @@ export class ZeussComponent {
     
     ngOnInit() {
         this.currentUser = JSON.parse(localStorage.getItem('USER'));
-        console.log("inicio"+this.currentUser);
+        
         if(this.currentUser!=null){
             this.esUser=true;
         }
     }
     ngDoCheck(){
         this.currentUser = JSON.parse(localStorage.getItem('USER'));
-        console.log("segundo"+this.currentUser);
+      
         if(this.currentUser!=null){
             this.esUser=true;
-            
         }
     }
+    /**
+     * @param
+     * 
+     */
     logout() {
         this.service.logout()
             .subscribe(

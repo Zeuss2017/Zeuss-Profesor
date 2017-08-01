@@ -6,10 +6,11 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {RestClient} from './rest-client';
 import {Profesor} from '../model/profesor.model';
+import { environment } from "../../environments/environment";
 
 @Injectable()
 export class ProfesorService extends RestClient<Profesor> {
-    baseURL = "http://174.138.36.65:8080/Zeuss/webresources/profesor/";
+    baseURL =  environment.url+"profesor/";
 
     constructor(http: Http) {
         super(http);
