@@ -1,13 +1,9 @@
 <div *ngIf="esUser">
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
-      <div class="navbar-header user">
-      </div>
       <a class="user">{{currentUser.nombre}}</a>
       <div class="nav navbar-nav navbar-right user">
-
         <div (click)="logout()"><span class="glyphicon glyphicon-log-in"></span>&nbsp;</div>
-
       </div>
     </div>
   </nav>
@@ -19,6 +15,6 @@
 </div>
 <div class="footer_bottom_nav navbar-fixed-bottom">
   <div *ngIf="esUser">
-    <div class="user"><img src="https://image.ibb.co/cp3eUa/Zeuss_Horizontal.png" alt="Zeuss" height="48px"> </div>
+    <div class="footer" ><img src="https://image.ibb.co/cp3eUa/Zeuss_Horizontal.png" alt="Zeuss" height="48px"> </div>
   </div>
 </div>

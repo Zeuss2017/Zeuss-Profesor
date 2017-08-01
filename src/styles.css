@@ -5,7 +5,7 @@
     background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
    /* background-color: #0404B4;*/
     color: white;                
-    height: 25px;
+   
     font-size: 25px;
     font-size: 8px;
     box-shadow: 3px 3px 3px 3px grey;
@@ -33,7 +33,7 @@ div.container {
     border: double;
 }
 .margen{
-    margin-top: 1cm;
+    margin-top: 2cm;
     padding-bottom: 1cm;
 }
 .titulo{
@@ -42,9 +42,7 @@ div.container {
     color:#DBA901;
     font-family: 'Caesar Dressing';
     text-align: center;
-    
     margin-bottom: 2cm;
-
 }
 .margenImagen{
    margin-top: 2cm;
@@ -67,9 +65,16 @@ div.container {
     color:white;
     font-size: 35px;
     font-family: 'Caesar Dressing';
+    
+    height:50px;
+}
+.footer{
+    
+    color:white;
+    font-size: 35px;
+    font-family: 'Caesar Dressing';
     text-align: center;
     height:50px;
-
 }
 .sub{
     /*color:#DBA901;*/
