@@ -4,10 +4,11 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { environment } from "../../environments/environment";
 
 @Injectable()
 export class AuthService  {
-    baseURL = "http://174.138.36.65:8080/Zeuss/webresources/auth/";
+    baseURL = environment.url+"auth/";
 
     constructor(private http: Http) {
     }

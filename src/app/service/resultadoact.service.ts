@@ -6,10 +6,11 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {RestClient} from './rest-client';
 import {ResultadoAct} from '../model/resultadoact.model';
+import { environment } from "../../environments/environment";
 
 @Injectable()
 export class ResultadoActService extends RestClient<ResultadoAct> {
-    baseURL = "http://174.138.36.65:8080/Zeuss/webresources/resultadoact/";
+    baseURL =  environment.url+"resultadoact";
 
     constructor(http: Http) {
         super(http);

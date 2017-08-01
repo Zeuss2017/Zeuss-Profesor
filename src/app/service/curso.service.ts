@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import {Http, Response} from '@angular/http';
 import {Location} from '@angular/common';
 import {Injectable} from '@angular/core';
@@ -9,7 +10,7 @@ import {Curso} from '../model/curso.model';
 
 @Injectable()
 export class CursoService extends RestClient<Curso> {
-    baseURL = "http://174.138.36.65:8080/Zeuss/webresources/curso/";
+    baseURL = environment.url+"curso/";
 
     constructor(http: Http) {
         super(http);
