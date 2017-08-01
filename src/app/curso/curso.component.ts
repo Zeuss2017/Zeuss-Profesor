@@ -30,7 +30,4 @@ export class CursoComponent implements OnInit {
             error => this.message = "Opción no permitida"
             );
     }
-
-    
 }
-
