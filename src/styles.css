@@ -5,10 +5,9 @@
     background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
    /* background-color: #0404B4;*/
     color: white;                
-   
     font-size: 25px;
-    font-size: 8px;
     box-shadow: 3px 3px 3px 3px grey;
+    position: relative;
 }
 .navbar-fixed-bottom{
    
@@ -18,10 +17,16 @@
     background: #ECE9E6;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
+       
+}
+.navbar-inverse .navbar-brand{
+    color: white;   
 }
 .negro{
     color:black;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+    background-color:#00c6ff;
 }
 div.container {
     width: 85%;
@@ -33,7 +38,7 @@ div.container {
     border: double;
 }
 .margen{
-    margin-top: 2cm;
+   
     padding-bottom: 1cm;
 }
 .titulo{
@@ -65,8 +70,13 @@ div.container {
     color:white;
     font-size: 35px;
     font-family: 'Caesar Dressing';
-    
     height:50px;
+}
+
+.botonesNav{
+    color:white;
+    font-size: 25px;
+    font-family: 'Sniglet';
 }
 .footer{
     

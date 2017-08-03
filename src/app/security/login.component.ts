@@ -1,5 +1,6 @@
+import { AuthService } from './../service/auth.service';
 import {Component} from '@angular/core';
-import {AuthService} from 'app/service/auth.service';
+
 
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -30,6 +31,7 @@ export class LoginComponent  {
             },
             error => this.message = 'Usuario y/o contraseña incorrecto' 
            );
+        
     }
 
 }

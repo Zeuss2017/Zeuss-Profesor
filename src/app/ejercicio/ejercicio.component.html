@@ -1,0 +1,23 @@
+<div class="col-sm-5">
+</div>
+<div class="col-sm-2">
+  <div class="sub"> Ejercicios</div>
+</div>
+<div class="col-sm-5 sub">
+  <button type="button" class=" btn boton btn-outline-warning btn-sm" [routerLink]="['/curso/crear']">CREAR</button>
+</div>
+<div class="col-sm-4">
+</div>
+<div class="col-sm-4">
+ <hr>
+  <ul class="list-group letra2 bordes" *ngFor="let c of cursos; let i = index">
+    <li class="list-group-item">
+      <div class="row">
+        <a class="negro" [routerLink]="['/estudiante/list', c.id]">{{c.nombre}}</a>
+        <a class="negro" [routerLink]="['/curso/editar', c.id]"><span class="glyphicon glyphicon-cog negro"></span></a>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="col-sm-4">
+</div>

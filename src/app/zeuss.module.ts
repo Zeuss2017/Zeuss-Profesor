@@ -1,6 +1,6 @@
+import { PerfilComponent } from './profesor/perfil.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { ZeussComponent } from './zeuss.component';
 import { AuthService } from "./service/auth.service";
 import { AuthGuard } from "./security/auth.guard";
@@ -13,34 +13,37 @@ import { RegistroComponent } from "./profesor/registro.component";
 import { CursoComponent } from "./curso/curso.component";
 import { CursoEditarComponent } from "./curso/curso-editar.component";
 import { EstudianteComponent } from "./estudiante/estudiante.component";
-import { HttpModule, JsonpModule} from "@angular/http";
-import {FormsModule} from '@angular/forms';
+import { HttpModule, JsonpModule } from "@angular/http";
+import { FormsModule } from '@angular/forms';
 import { ZeussRoutingModule } from "./zeuss-routing";
+import { EjercicioComponent } from './ejercicio/ejercicio.component';
 
 @NgModule({
-  
+
   declarations: [
-    ZeussComponent   ,     
+    ZeussComponent,
     LoginComponent,
-        RegistroComponent,
-        CursoComponent,
-        CursoEditarComponent,
-        EstudianteComponent
+    RegistroComponent,
+    CursoComponent,
+    CursoEditarComponent,
+    EstudianteComponent,
+    PerfilComponent,
+    EjercicioComponent
   ],
   imports: [
     BrowserModule,
-            HttpModule,
-        JsonpModule,
-        FormsModule,
-        ZeussRoutingModule
+    HttpModule,
+    JsonpModule,
+    FormsModule,
+    ZeussRoutingModule
   ],
   providers: [
-        AuthService,
-        AuthGuard,
-        ProfesorService,
-        ColegioService,
-        CursoService,
-        EstudianteService
+    AuthService,
+    AuthGuard,
+    ProfesorService,
+    ColegioService,
+    CursoService,
+    EstudianteService
   ],
   bootstrap: [ZeussComponent]
 })
