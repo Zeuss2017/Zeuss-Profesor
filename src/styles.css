@@ -38,9 +38,9 @@ div.container {
     border: double;
 }
 .margen{
-   
-    padding-bottom: 1cm;
+   margin-top: 50px;
 }
+
 .titulo{
     
     font-size: 60px;
