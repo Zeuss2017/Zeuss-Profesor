@@ -29,7 +29,7 @@
     background-color:#00c6ff;
 }
 div.container {
-    width: 85%;
+    width: 90%;
     border-radius: 8px;
     background-color: #FAFAFA;
 }
@@ -53,6 +53,15 @@ div.container {
    margin-top: 1cm;
    padding-bottom: 1cm;
     
+}
+.margenTop{
+   margin-top: 0.5cm;
+       
+}
+.margenBottom{
+    margin-top: 0.8cm;
+   padding-bottom: 1.5cm;
+   margin-right: 0.5cm;
 }
 .letra{
     font-family: 'Sniglet';
@@ -88,7 +97,7 @@ div.container {
 .sub{
     /*color:#DBA901;*/
     color: #009CFF;
-    font-size: 55px;
+    font-size: 40px;
     font-family: 'Caesar Dressing';
     text-align: center;
     height:50px;
@@ -101,7 +110,7 @@ div.container {
 }
 .subtitulo{
     
-    font-size: 35px;
+    font-size: 30px;
     color:#454141;
     font-family: 'Sniglet';
     text-align: center;
@@ -129,3 +138,32 @@ li{
     font-family: 'Caesar Dressing';
     text-align: left;
 }
+
+th{
+    font-family: 'Sniglet';
+    color:#DBA901;
+    font-size: 25px;
+     text-align: center;
+}
+td{
+    font-family: 'Sniglet';
+        text-align: center;
+         font-size: 20px;
+}
+
+.btn-sq-lg {
+  width: 150px !important;
+  height: 80px !important;
+  text-align: center;
+  padding-top: 12px;
+  font-size: 20px;
+  font-family: 'Sniglet';
+ 
+}
+.btn:focus{
+ box-shadow: 3px 3px 3px 3px grey;
+}
+.ej:focus{
+ box-shadow: 3px 3px 3px 3px grey;
+}
+        

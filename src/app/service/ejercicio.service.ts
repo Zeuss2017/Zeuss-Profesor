@@ -15,5 +15,11 @@ export class EjercicioService extends RestClient<Ejercicio> {
     constructor(http: Http) {
         super(http);
     }
+    findEjercicios(username:string) {
+        let url = this.baseURL +'profesor/'+ username ;
+        return this.http.get(url)
+            .map((res: Response) => res.json());
+        
+    }
 
 }

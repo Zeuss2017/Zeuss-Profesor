@@ -4,20 +4,28 @@
   <div class="sub"> Ejercicios</div>
 </div>
 <div class="col-sm-5 sub">
-  <button type="button" class=" btn boton btn-outline-warning btn-sm" [routerLink]="['/curso/crear']">CREAR</button>
+  <button type="button" class=" btn boton btn-outline-warning btn-sm" [routerLink]="['/ejercicio/crear']">CREAR</button>
 </div>
-<div class="col-sm-4">
+
+<br>
+<br>
+<div class="col-sm-2">
 </div>
-<div class="col-sm-4">
- <hr>
-  <ul class="list-group letra2 bordes" *ngFor="let c of cursos; let i = index">
-    <li class="list-group-item">
-      <div class="row">
-        <a class="negro" [routerLink]="['/estudiante/list', c.id]">{{c.nombre}}</a>
-        <a class="negro" [routerLink]="['/curso/editar', c.id]"><span class="glyphicon glyphicon-cog negro"></span></a>
-      </div>
-    </li>
-  </ul>
+<div class="col-sm-8">
+<br>
+<br>
+  <table class="table table-hover" >
+  <tr>
+    <th width="10%">NIVEL</th>
+    <th width="90%">ENUNCIADO</th> 
+  </tr>
+  <tr *ngFor="let e of ejercicios">
+    
+    <td align="center">{{e.nivel}}</td>
+    <td align="center">{{e.enunciado1}}</td> 
+
+  </tr>
+</table>
 </div>
-<div class="col-sm-4">
+<div class="col-sm-2">
 </div>

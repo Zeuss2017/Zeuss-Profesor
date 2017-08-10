@@ -17,6 +17,11 @@ import { HttpModule, JsonpModule } from "@angular/http";
 import { FormsModule } from '@angular/forms';
 import { ZeussRoutingModule } from "./zeuss-routing";
 import { EjercicioComponent } from './ejercicio/ejercicio.component';
+import { EjercicioService } from "./service/ejercicio.service";
+import { CrearejercicioComponent } from './crearejercicio/crearejercicio.component';
+import { Actividad1Component } from './actividad/actividad1/actividad1.component';
+import { Actividad2Component } from './actividad/actividad2/actividad2.component';
+import { Actividad3Component } from './actividad/actividad3/actividad3.component';
 
 @NgModule({
 
@@ -28,7 +33,12 @@ import { EjercicioComponent } from './ejercicio/ejercicio.component';
     CursoEditarComponent,
     EstudianteComponent,
     PerfilComponent,
-    EjercicioComponent
+    EjercicioComponent,
+    EjercicioComponent,
+    CrearejercicioComponent,
+    Actividad1Component,
+    Actividad2Component,
+    Actividad3Component
   ],
   imports: [
     BrowserModule,
@@ -43,7 +53,8 @@ import { EjercicioComponent } from './ejercicio/ejercicio.component';
     ProfesorService,
     ColegioService,
     CursoService,
-    EstudianteService
+    EstudianteService,
+    EjercicioService
   ],
   bootstrap: [ZeussComponent]
 })
