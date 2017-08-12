@@ -1,3 +1,4 @@
+import { Md5 } from 'ts-md5/dist/md5';
 import { AuthService } from './../service/auth.service';
 import {Component} from '@angular/core';
 
@@ -23,6 +24,7 @@ export class LoginComponent  {
 
 
     login() {
+        this.loginCredentials.contrasena=<string>Md5.hashStr(this.loginCredentials.contrasena);
         this.service.login(this.loginCredentials.username, this.loginCredentials.contrasena)
             .subscribe(
             user => {

@@ -16,4 +16,10 @@ export class RespuestaService extends RestClient<Respuesta> {
         super(http);
     }
 
+    create2(obj: Respuesta, idEjercicio:number) {
+        console.log("post " + this.baseURL + " " + JSON.stringify(obj));
+        return this.http.post(this.baseURL + "create2/"+idEjercicio, obj)
+            .map((res: Response) => res.json());
+    }
+
 }

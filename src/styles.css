@@ -166,4 +166,15 @@ td{
 .ej:focus{
  box-shadow: 3px 3px 3px 3px grey;
 }
+
+textarea {
+    resize: none;
+}
+input[type='radio'] {
+    transform: scale(1.5);
+}
+.margenCombo{
+    margin-left: 40%;
+    margin-right: 40%;
+}
         

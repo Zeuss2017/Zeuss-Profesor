@@ -1,3 +1,4 @@
+import { RespuestaService } from './service/respuesta.service';
 import { PerfilComponent } from './profesor/perfil.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -54,7 +55,8 @@ import { Actividad3Component } from './actividad/actividad3/actividad3.component
     ColegioService,
     CursoService,
     EstudianteService,
-    EjercicioService
+    EjercicioService,
+    RespuestaService
   ],
   bootstrap: [ZeussComponent]
 })

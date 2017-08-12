@@ -21,5 +21,15 @@ export class EjercicioService extends RestClient<Ejercicio> {
             .map((res: Response) => res.json());
         
     }
+    create(obj: Ejercicio) {
+        console.log("post " + this.baseURL + " " + JSON.stringify(obj));
+        return this.http.post(this.baseURL + "create", obj)
+            .map((res: Response) => res.json());
+    }
+    asoProEj(id:number,username:string) {
+        let url = this.baseURL +'asoProEj/'+id+'/'+ username ;
+        return this.http.get(url)
+            .map((res: Response) => res.json());
+    }
 
 }

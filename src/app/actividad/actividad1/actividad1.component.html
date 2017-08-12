@@ -1,3 +1,69 @@
-<p>
-  actividad1 works!
-</p>
+<div class="sub"> CREAR EJERCICIO ACTIVIDAD 1</div>
+<hr>
+<div>
+  <form (ngSubmit)="guardar()">
+    <div class="col-sm-4">
+      <div class="form-group" class="subtitulo">
+        Primera parte del enunciado
+        <br><br>
+        <textarea class="form-control" id="exampleTextarea" name="lala" rows="3" maxlength="100" [(ngModel)]="ejercicio.enunciado1" required></textarea>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group" class="subtitulo">
+        Respuestas (marca la correcta)
+        <br><br>
+        <div class="col-sm-4" align="center">
+          <div class="form-group">
+            <input type="text" class="form-control" name="res1" id="exampleInputPassword1" placeholder="Opción 1" maxlength="20" [(ngModel)]="respuesta1.enunciado" required>
+          </div>
+          <label class="radio-inline">
+            <input type ="radio" id="txtCurso" [value]=1 name="moderado" [(ngModel)]="correcta" required>
+        </label>
+        </div>
+        <div class="col-sm-4" align="center">
+          <div class="form-group">
+            <input type="text" class="form-control" name="res2" id="exampleInputPassword1" placeholder="Opción 2" maxlength="20" [(ngModel)]="respuesta2.enunciado" required>
+          </div>
+          <label class="radio-inline">
+            <input type ="radio" id="txtCurso" [value]=2 name="moderado" [(ngModel)]="correcta" required>
+        </label>
+        </div>
+        <div class="col-sm-4" align="center">
+          <div class="form-group">
+            <input type="text" class="form-control" name="res3" id="exampleInputPassword1" placeholder="Opción 3" maxlength="20" [(ngModel)]="respuesta3.enunciado" required>
+          </div>
+          <label class="radio-inline">
+            <input type ="radio"  id="txtCurso" [value]=3 name="moderado" [(ngModel)]="correcta" required>
+        </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group" class="subtitulo">
+        Segunda parte del enunciado
+        <br><br>
+        <textarea class="form-control" id="exampleTextarea2" name="la" rows="3" maxlength="100" [(ngModel)]="ejercicio.enunciado2" required ></textarea>
+      </div>
+      <br>
+      <br>
+      <br><br>
+
+    </div>
+    <div class="col-sm-8">
+      <div class="subtitulo margenCombo">Nivel
+        <select class="form-control" data-live-search="true" id="enca" name="tipoId" [(ngModel)]="ejercicio.nivel" required>  
+            <option *ngFor="let i of niveles" [ngValue]="i">{{i}}</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="col-sm-4">
+    <div align="center" class="margenBottom">
+      <button type="submit" class=" btn boton btn-outline-warning btn-sm">GUARDAR</button>
+    </div>
+    </div>
+  </form>
+</div>

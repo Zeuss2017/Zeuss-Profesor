@@ -6,6 +6,7 @@ export class Ejercicio {
         public enunciado1:string,
         public enunciado2:string,
         public enunciado3:string,
+        public escenario:string,
         public nivel:number
         ) {}
 }
