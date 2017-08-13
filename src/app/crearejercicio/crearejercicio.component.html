@@ -8,58 +8,54 @@
   <div class="col-sm-4">
   </div>
 
-<hr>
-<br><br>
-<div class="subtitulo">Elige la actividad </div>
-<div class="margenTop">
-  <div class="col-sm-4" align="center">
-    <button (click)="cambioActividad(1)" class="btn btn-sq-lg btn-primary"><i class="fa fa-user fa-5x"></i>
+  <hr>
+  <br><br>
+  <div class="subtitulo">Elige la actividad </div>
+  <div class="margenTop">
+    <div class="col-sm-4" align="center">
+      <button (click)="cambioActividad(1)" class="btn btn-sq-lg btn-primary"><i class="fa fa-user fa-5x"></i>
                ARTÍCULO<br>SUSTANTIVO
     </button>
-              <br><br>
-  </div>
-  <div class="col-sm-4" align="center">
+      <br><br>
+    </div>
+    <div class="col-sm-4" align="center">
 
-    <button (click)="cambioActividad(2)" class="btn btn-sq-lg btn-success"><i class="fa fa-user fa-5x"></i>
+      <button (click)="cambioActividad(2)" class="btn btn-sq-lg btn-success"><i class="fa fa-user fa-5x"></i>
                SUJETO<br>VERBO
     </button>
-              <br><br>
-  </div>
-  <div class="col-sm-4" align="center">
+      <br><br>
+    </div>
+    <div class="col-sm-4" align="center">
 
-    <button (click)="cambioActividad(3)"class="btn btn-sq-lg btn-danger"><i class="fa fa-user fa-5x"></i>
+      <button (click)="cambioActividad(3)" class="btn btn-sq-lg btn-danger"><i class="fa fa-user fa-5x"></i>
                SUSTANTIVO<br>ADJETIVO
     </button>
-           <br><br>   
+      <br><br>
+    </div>
   </div>
-</div>
 
-<div class="subtitulo">Elige el escenario </div>
-<div class="margenTop">
-  <div class="col-sm-4" align="center">
-    <button (click)="cambioEscenario('COMIDA')" class=" ej btn btn-sq-lg btn-primary " ><i class="fa fa-user fa-5x"></i>
+  <div class="subtitulo">Elige el escenario </div>
+  <div class="margenTop">
+    <div class="col-sm-2" align="center">
+    </div>
+    <div class="col-sm-4" align="center">
+      <button (click)="cambioEscenario('COMIDA')" class=" ej btn btn-sq-lg btn-primary "><i class="fa fa-user fa-5x"></i>
               COMIDA
     </button>
-            <br><br>
-  </div>
-  <div class="col-sm-4" align="center">
+      <br><br>
+    </div>
 
-    <button (click)="cambioEscenario('DINOSAURIOS')" class=" ej btn btn-sq-lg btn-success"><i class="fa fa-user fa-5x"></i>
-                DINOSAURIOS
-    </button>
-              <br><br>
-  </div>
-  <div class="col-sm-4" align="center">
+    <div class="col-sm-4" align="center">
 
-    <button (click)="cambioEscenario('PIRATAS')" class=" ej btn btn-sq-lg btn-danger"><i class="fa fa-user fa-5x"></i>
+      <button (click)="cambioEscenario('PIRATAS')" class=" ej btn btn-sq-lg btn-danger"><i class="fa fa-user fa-5x"></i>
                PIRATAS
     </button>
-              <br><br>
+      <br><br>
+    </div>
   </div>
-</div>
 
-<div align="right" class="margenBottom">
- <button type="button" class=" btn boton btn-outline-warning btn-sm" (click)="next()">SIGUIENTE</button>
- </div>
+  <div align="right" class="margenBottom">
+    <button type="button" class=" btn boton btn-outline-warning btn-sm" (click)="next()">SIGUIENTE</button>
+  </div>
 
 </div>

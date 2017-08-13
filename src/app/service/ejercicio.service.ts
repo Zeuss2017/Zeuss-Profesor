@@ -26,8 +26,8 @@ export class EjercicioService extends RestClient<Ejercicio> {
         return this.http.post(this.baseURL + "create", obj)
             .map((res: Response) => res.json());
     }
-    asoProEj(id:number,username:string) {
-        let url = this.baseURL +'asoProEj/'+id+'/'+ username ;
+    asoProActEj(id:number,username:string, actividad:number) {
+        let url = this.baseURL +'asoProActEj/'+id+'/'+ username +'/'+actividad;
         return this.http.get(url)
             .map((res: Response) => res.json());
     }
