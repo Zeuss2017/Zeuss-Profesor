@@ -1,0 +1,48 @@
+<div class="sub"> CREAR EJERCICIO ACTIVIDAD 3</div>
+<hr>
+<div>
+  <form ngNativeValidate (ngSubmit)="guardar()">
+    <div class="col-sm-5">
+      <div class="form-group" class="subtitulo2">
+        Primera parte del enunciado
+        <br><br>
+        <textarea class="form-control" id="exampleTextarea" name="lala1" rows="2" maxlength="100" required [(ngModel)]="ejercicio.enunciado1"></textarea>
+        <br> <textarea class="form-control" id="exampleTextarea" name="lalaa1" rows="2" maxlength="100" required [(ngModel)]="ejercicio.enunciado2"></textarea>
+        <br><textarea class="form-control" id="exampleTextarea" name="lalaaa1" rows="2" maxlength="100" required [(ngModel)]="ejercicio.enunciado3"></textarea>
+      </div>
+    </div>
+
+    <div class="col-sm-2" align="center">
+      <span class="glyphicon glyphicon-resize-horizontal"></span>
+      <br><span class="glyphicon glyphicon-resize-horizontal"></span>
+      <br><span class="glyphicon glyphicon-resize-horizontal"></span>
+    </div>
+    <div class="col-sm-5">
+      <div class="form-group" class="subtitulo2">
+        Segunda parte del enunciado
+        <br><br>
+        <textarea class="form-control" id="exampleTextarea2" name="la" rows="2" maxlength="100" [(ngModel)]="respuesta1.enunciado"
+          required></textarea>
+        <br><textarea class="form-control" id="exampleTextarea2" name="laa" rows="2" maxlength="100" [(ngModel)]="respuesta2.enunciado"
+          required></textarea>
+        <br><textarea class="form-control" id="exampleTextarea2" name="laaa" rows="2" maxlength="100" [(ngModel)]="respuesta3.enunciado"
+          required></textarea>
+      </div>
+
+    </div>
+    <div class="col-sm-8">
+      <br>
+      <div class="subtitulo2 margenCombo">Nivel
+        <select class="form-control" data-live-search="true" id="enca" name="tipoId" [(ngModel)]="ejercicio.nivel" required>  
+            <option *ngFor="let i of niveles" [ngValue]="i">{{i}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div align="center" class="margenBottom">
+        <button type="submit" class=" btn boton btn-outline-warning btn-sm">GUARDAR</button>
+      </div>
+    </div>
+  </form>
+</div>

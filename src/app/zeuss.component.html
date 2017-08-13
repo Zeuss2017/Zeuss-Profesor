@@ -1,20 +1,27 @@
 <div *ngIf="esUser">
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
-      <a class="user">{{currentUser.nombre}}</a>
+      <div class="navbar-header">
+        <a class="navbar-brand user" [routerLink]="['/perfil']">{{currentUser.nombre}}&nbsp;&nbsp;</a>
+      </div>
+      <div class="nav navbar-nav navbar-center ">
+        <ul class="nav nav-pills botonesNav">
+          <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav" [routerLink]="['/curso/list']">Cursos</a></li>
+          <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav" [routerLink]="['/ejercicio/list']">Ejercicios</a></li>
+          <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav">Ayuda</a></li>
+        </ul>
+      </div>
       <div class="nav navbar-nav navbar-right user">
-        <div (click)="logout()"><span class="glyphicon glyphicon-log-in"></span>&nbsp;</div>
+        <div (click)="logout()">&nbsp;<span class="glyphicon glyphicon-log-in"></span>&nbsp;</div>
       </div>
     </div>
   </nav>
-  <br><br>
 </div>
-
-<div class="container margen">
-  <router-outlet></router-outlet>
+<div class="container">
+    <router-outlet></router-outlet>
 </div>
 <div class="footer_bottom_nav navbar-fixed-bottom">
   <div *ngIf="esUser">
-    <div class="footer" ><img src="../assets/Zeuss Horizontal.png" alt="Zeuss" height="48px"> </div>
+    <div class="footer"><img src="../assets/Zeuss Horizontal.png" alt="Zeuss" height="48px"> </div>
   </div>
 </div>

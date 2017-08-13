@@ -1,5 +1,5 @@
-<div class="margen letra">
-  
+<div class="letra">
+  <br>
   <div class="col-md-4 margenImagen" align="center" >
     <a><img src="../../assets/Zeuss.png" alt="Zeuss" height="250px"> </a>
     
@@ -29,21 +29,17 @@
       <div class="form-group">
         <label class="control-label col-sm-4" for="pwd">Colegio:</label>
         <div class="col-sm-8">          
-          <select class="form-control" data-live-search="true" id="enca" name="tipoId" [(ngModel)]="idColegio" required>  
+          <select class="form-control"  id="enca" name="tipoId" [(ngModel)]="idColegio" required>  
             <option *ngFor="let i of colegios" [ngValue]="i.id">{{i.nombre}}</option>
           </select>
         </div>
       </div>
       <br>
-      
       <div class="form-group" align="center" >
         <button type="submit" class="btn btn-warning btn-lg">Registrarse</button>   
       </div>
-      
     </form>    
-  
   </div>
-
   <div class="col-md-2">
   </div>
 </div>

@@ -1,3 +1,4 @@
+import { ProfesorService } from './service/profesor.service';
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './service/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -18,6 +19,7 @@ export class ZeussComponent {
     constructor(
         private service: AuthService,
         private route: ActivatedRoute,
+        private serviceProfesor:ProfesorService,
         private router: Router
     ) {}
     
@@ -30,7 +32,7 @@ export class ZeussComponent {
     }
     ngDoCheck(){
         this.currentUser = JSON.parse(localStorage.getItem('USER'));
-      
+
         if(this.currentUser!=null){
             this.esUser=true;
         }

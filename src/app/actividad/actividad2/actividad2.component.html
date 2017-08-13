@@ -1,0 +1,97 @@
+<div class="sub"> CREAR EJERCICIO ACTIVIDAD 2</div>
+<hr>
+<div>
+  <form ngNativeValidate (ngSubmit)="guardar()">
+    <div class="col-sm-4">
+      <div class="form-group" class="subtitulo2">
+        Primera parte del enunciado
+        <br><br>
+        <textarea class="form-control" id="exampleTextarea" name="lala" rows="3" maxlength="100" required [(ngModel)]="ejercicio.enunciado1"></textarea>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group" class="subtitulo2">
+        Respuestas (marca la correcta)
+        <br>
+        <div class="col-sm-8" align="center">
+          <div class="form-group">
+            <input type="text" class="form-control" name="res1" id="res1" #res1="ngModel" placeholder="Respuesta" maxlength="20" [(ngModel)]="respuesta.enunciado">
+            <div class="subtitulo2" style="color:#B40404">
+              {{msjeTam}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4" align="center">
+          <button type="button" (click)="agregar()" class=" btn boton2 btn-outline-warning btn-xs">Agregar</button>
+        </div>
+      </div>
+      <table class="table table-hover">
+        <tr>
+          <th width="10%">CORRECTA</th>
+          <th width="90%">RESPUESTA</th>
+        </tr>
+        <tr *ngFor="let r of respuestas ; let i = index">
+          <td align="center">
+            <input type="radio" name="radiogroup" [checked]="idx === 0" [value]="correcta" (change)="change(i)">
+          </td>
+          <td align="center">{{r.enunciado}}</td>
+        </tr>
+      </table>
+
+      <div *ngIf="guardoRes">
+        <div *ngIf="respuestas.length>2; then hay else nohay"></div>
+        <ng-template #nohay>
+          <div class="subtitulo2" style="color:#B40404">
+            {{message}}
+          </div>
+        </ng-template>
+        <ng-template #hay>
+          <div *ngIf="actual>-1 && respuestas.length>2; then siescogio else noescogio"></div>
+          <ng-template #noescogio>
+            <div class="subtitulo2" style="color:#B40404">
+              {{message2}}
+            </div>
+          </ng-template>
+        </ng-template>
+      </div>
+
+
+
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group" class="subtitulo2">
+        Segunda parte del enunciado
+        <br><br>
+        <textarea class="form-control" id="exampleTextarea2" name="la" rows="3" maxlength="100" [(ngModel)]="ejercicio.enunciado2"
+          required></textarea>
+      </div>
+      <br>
+      <br>
+      <br><br>
+
+    </div>
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+
+
+    </div>
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-8">
+      <div class="subtitulo2 margenCombo">Nivel
+        <select class="form-control" data-live-search="true" id="enca" name="tipoId" [(ngModel)]="ejercicio.nivel" required>  
+            <option *ngFor="let i of niveles" [ngValue]="i">{{i}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div align="center" class="margenBottom">
+        <button type="submit" class=" btn boton btn-outline-warning btn-sm">GUARDAR</button>
+      </div>
+    </div>
+  </form>
+</div>
