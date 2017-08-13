@@ -193,4 +193,7 @@ input[type='radio'] {
 .form-control{
     font-size: 17px;
 }
-        
+.glyphicon-resize-horizontal{
+    font-size: 45px;
+    margin-top:53px;
+}        

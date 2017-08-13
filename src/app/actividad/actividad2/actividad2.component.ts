@@ -67,6 +67,5 @@ export class Actividad2Component implements OnInit {
       error => this.message = "Error: " + JSON.stringify(error)
     );
     this.router.navigate(['ejercicio/list']);
-
   }
 }
