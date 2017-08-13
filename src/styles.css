@@ -32,6 +32,7 @@ div.container {
     width: 90%;
     border-radius: 8px;
     background-color: #FAFAFA;
+    margin-bottom: 50px;
 }
 .crear{
     font-size:15px;
@@ -56,6 +57,7 @@ div.container {
 }
 .margenTop{
    margin-top: 0.5cm;
+
        
 }
 .margenBottom{
@@ -174,10 +176,11 @@ td{
  
 }
 .btn:focus{
- box-shadow: 3px 3px 3px 3px grey;
+ box-shadow: 5px 5px 5px 5px grey;
 }
 .ej:focus{
- box-shadow: 3px 3px 3px 3px grey;
+    
+ box-shadow: 5px 5px 5px 5px grey;
 }
 
 textarea {
@@ -196,4 +199,8 @@ input[type='radio'] {
 .glyphicon-resize-horizontal{
     font-size: 45px;
     margin-top:53px;
-}        
+}    
+
+.glyphicon-ok{
+    font-size: 20px;
+}

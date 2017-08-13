@@ -24,6 +24,7 @@ import { Actividad1Component } from './actividad/actividad1/actividad1.component
 import { Actividad2Component } from './actividad/actividad2/actividad2.component';
 import { Actividad3Component } from './actividad/actividad3/actividad3.component';
 
+
 @NgModule({
 
   declarations: [

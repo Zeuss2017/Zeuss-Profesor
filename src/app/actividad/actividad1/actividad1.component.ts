@@ -31,47 +31,50 @@ export class Actividad1Component implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('USER'));
   }
   guardar() {
-    
-    if (this.correcta == 1) {
-      this.respuesta1.correcta = 1;
+    if (this.correcta == 0) {
+      this.message = 'Seleccione la opción correcta';
     }
-    if (this.correcta == 2) {
-      this.respuesta2.correcta = 1;
-    }
-    if (this.correcta == 3) {
-      this.respuesta3.correcta = 1;
-    }
-    
-    this.ejercicio.enunciado1 = this.ejercicio.enunciado1 + "__________" + this.ejercicio.enunciado2;
-    this.ejercicio.enunciado2 = '';
-    this.service.create(this.ejercicio).subscribe(
-      id => {
-        
-        this.ejercicio.id = id
-        this.service.asoProActEj(this.ejercicio.id, this.currentUser.username,1).subscribe(
-          success => {
-            this.serviceRes.create2(this.respuesta1, this.ejercicio.id).subscribe(
-              success => {
-                this.serviceRes.create2(this.respuesta2, this.ejercicio.id).subscribe(
-                  success => {
-                    this.serviceRes.create2(this.respuesta3, this.ejercicio.id).subscribe(
-                      success => { this.router.navigate(['ejercicio/list']); },
-                      error => this.message = "Error: " + JSON.stringify(error)
-                    );
-                  },
-                  error => this.message = "Error: " + JSON.stringify(error)
-                );
-              },
-              error => this.message = "Error: " + JSON.stringify(error)
-            );
+    else {
+      if (this.correcta == 1) {
+        this.respuesta1.correcta = 1;
+      }
+      if (this.correcta == 2) {
+        this.respuesta2.correcta = 1;
+      }
+      if (this.correcta == 3) {
+        this.respuesta3.correcta = 1;
+      }
 
-          },
-          error => this.message = "Error: " + JSON.stringify(error)
-        );
-      },
-      error => this.message = "Error: " + JSON.stringify(error)
-    );
+      this.ejercicio.enunciado1 = this.ejercicio.enunciado1 + "__________" + this.ejercicio.enunciado2;
+      this.ejercicio.enunciado2 = '';
+      this.service.create(this.ejercicio).subscribe(
+        id => {
 
+          this.ejercicio.id = id
+          this.service.asoProActEj(this.ejercicio.id, this.currentUser.username, 1).subscribe(
+            success => {
+              this.serviceRes.create2(this.respuesta1, this.ejercicio.id).subscribe(
+                success => {
+                  this.serviceRes.create2(this.respuesta2, this.ejercicio.id).subscribe(
+                    success => {
+                      this.serviceRes.create2(this.respuesta3, this.ejercicio.id).subscribe(
+                        success => { this.router.navigate(['ejercicio/list']); },
+                        error => this.message = "Error: " + JSON.stringify(error)
+                      );
+                    },
+                    error => this.message = "Error: " + JSON.stringify(error)
+                  );
+                },
+                error => this.message = "Error: " + JSON.stringify(error)
+              );
+
+            },
+            error => this.message = "Error: " + JSON.stringify(error)
+          );
+        },
+        error => this.message = "Error: " + JSON.stringify(error)
+      );
+
+    }
   }
-
 }

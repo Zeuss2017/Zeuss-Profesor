@@ -29,7 +29,7 @@
       <div class="form-group">
         <label class="control-label col-sm-4" for="pwd">Colegio:</label>
         <div class="col-sm-8">          
-          <select class="form-control" data-live-search="true" id="enca" name="tipoId" [(ngModel)]="idColegio" required>  
+          <select class="form-control"  id="enca" name="tipoId" [(ngModel)]="idColegio" required>  
             <option *ngFor="let i of colegios" [ngValue]="i.id">{{i.nombre}}</option>
           </select>
         </div>

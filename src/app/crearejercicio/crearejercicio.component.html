@@ -11,51 +11,77 @@
   <hr>
   <br><br>
   <div class="subtitulo">Elige la actividad </div>
-  <div class="margenTop">
-    <div class="col-sm-4" align="center">
-      <button (click)="cambioActividad(1)" class="btn btn-sq-lg btn-primary"><i class="fa fa-user fa-5x"></i>
+  <div class="margenTop ">
+    <div class="col-sm-4">
+      <div class="col-sm-9" align="right">
+        <button (click)="cambioActividad(1)" class="btn btn-sq-lg btn-primary"><i class="fa fa-user fa-5x"></i>
                ARTÍCULO<br>SUSTANTIVO
-    </button>
+        </button>
+      </div>
+      <div class="col-sm-3" align="left">
+        <br>
+        <div *ngIf="act==1"><span class="glyphicon glyphicon-ok" style="color:blue"></span></div>
+      </div>
       <br><br>
     </div>
     <div class="col-sm-4" align="center">
-
-      <button (click)="cambioActividad(2)" class="btn btn-sq-lg btn-success"><i class="fa fa-user fa-5x"></i>
+      <div class="col-sm-9" align="right">
+        <button (click)="cambioActividad(2)" class="btn btn-sq-lg btn-success" ><i class="fa fa-user fa-5x"></i>
                SUJETO<br>VERBO
-    </button>
+      </button>
+      </div>
+      <br>
+      <div class="col-sm-3" align="left">
+
+        <div *ngIf="act==2"><span class="glyphicon glyphicon-ok" style="color:green"></span></div>
+      </div>
       <br><br>
     </div>
     <div class="col-sm-4" align="center">
-
-      <button (click)="cambioActividad(3)" class="btn btn-sq-lg btn-danger"><i class="fa fa-user fa-5x"></i>
+      <div class="col-sm-9" align="right">
+        <button (click)="cambioActividad(3)" class="btn btn-sq-lg btn-danger"><i class="fa fa-user fa-5x"></i>
                SUSTANTIVO<br>ADJETIVO
-    </button>
+      </button>
+      </div>
+      <div class="col-sm-3" align="left">
+        <br>
+        <div *ngIf="act==3"><span class="glyphicon glyphicon-ok" style="color:red"></span></div>
+      </div>
       <br><br>
     </div>
   </div>
-
+  <hr>
   <div class="subtitulo">Elige el escenario </div>
   <div class="margenTop">
     <div class="col-sm-2" align="center">
     </div>
     <div class="col-sm-4" align="center">
-      <button (click)="cambioEscenario('COMIDA')" class=" ej btn btn-sq-lg btn-primary "><i class="fa fa-user fa-5x"></i>
+      <div class="col-sm-9" align="right">
+        <button (click)="cambioEscenario('COMIDA')" class=" ej btn btn-sq-lg btn-primary "><i class="fa fa-user fa-5x"></i>
               COMIDA
-    </button>
+    </button></div>
+      <div class="col-sm-3" align="left"><br>
+        <div *ngIf="escenario=='COMIDA'"><span class="glyphicon glyphicon-ok" style="color:blue"></span></div>
+      </div>
       <br><br>
     </div>
 
     <div class="col-sm-4" align="center">
-
-      <button (click)="cambioEscenario('PIRATAS')" class=" ej btn btn-sq-lg btn-danger"><i class="fa fa-user fa-5x"></i>
+      <div class="col-sm-9" align="right">
+        <button (click)="cambioEscenario('PIRATAS')" class=" ej btn btn-sq-lg btn-danger"><i class="fa fa-user fa-5x"></i>
                PIRATAS
-    </button>
-      <br><br>
+    </button></div>
+      <div class="col-sm-3" align="left"><br>
+        <div *ngIf="escenario=='PIRATAS'"><span class="glyphicon glyphicon-ok" style="color:red"></span>
+        </div>
+      
     </div>
+    <br><br>
   </div>
+</div>
 
-  <div align="right" class="margenBottom">
-    <button type="button" class=" btn boton btn-outline-warning btn-sm" (click)="next()">SIGUIENTE</button>
-  </div>
+<div align="right" class="margenBottom">
+  <button type="button" class=" btn boton btn-outline-warning btn-sm" (click)="next()">SIGUIENTE</button>
+</div>
 
 </div>

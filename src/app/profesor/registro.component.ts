@@ -39,19 +39,22 @@ export class RegistroComponent implements OnInit {
         if (this.existeUser) {
             this.message = '';
             let hash = Md5.hashStr(this.profesor.contrasena);
-            this.profesor.contrasena=<string>hash;
-            
+            this.profesor.contrasena = <string>hash;
+
             this.serviceProfesor.create(this.profesor)
                 .subscribe(
-                success => this.router.navigate(['/login']),
+                success => {
+                    this.router.navigate(['/login'])
+                    this.serviceProfesor.asociarColPro(this.idColegio, this.profesor.username)
+                        .subscribe(
+                        success => this.message = 'Exito',
+                        error => this.errorMessage = "Opción no permitida"
+                        );
+                },
                 error => this.message = 'El username ya existe, escoja otro'
                 );
 
-            this.serviceProfesor.asociarColPro(this.idColegio, this.profesor.username)
-                .subscribe(
-                success => this.message = 'Exito',
-                error => this.errorMessage = "Opción no permitida"
-                );
+
         }
 
 

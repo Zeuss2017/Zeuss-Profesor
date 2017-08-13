@@ -13,12 +13,15 @@ import { Ejercicio } from './../../model/ejercicio.model';
 export class Actividad2Component implements OnInit {
   niveles: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   ejercicio: Ejercicio = new Ejercicio(0, '', '', '', '', 0);
-  message = "";
+  message = 'Agregue min 3 respuestas';
+  message2 = '';
   respuesta = new Respuesta(0, '', 0);
   respuestas: Array<Respuesta> = new Array;
   currentUser = new Profesor(0, '', '', '');
   correcta = 0;
   actual: number = -1;
+  msjeTam = '';
+  guardoRes=false;
   constructor(
     private service: EjercicioService,
     private serviceRes: RespuestaService,
@@ -27,7 +30,7 @@ export class Actividad2Component implements OnInit {
   ) { }
 
   ngOnInit() {
-  this.ejercicio.escenario = this.route.snapshot.params['escenario'];
+    this.ejercicio.escenario = this.route.snapshot.params['escenario'];
     this.currentUser = JSON.parse(localStorage.getItem('USER'));
   }
 
@@ -41,31 +44,50 @@ export class Actividad2Component implements OnInit {
   }
 
   agregar() {
-    console.log(this.respuesta.enunciado);
-    this.respuestas.push(this.respuesta);
-    this.respuesta = new Respuesta(0, '', 0);
+    
+    if (this.respuesta.enunciado.length > 0) {
+      console.log(this.respuesta.enunciado);
+      this.msjeTam = '';
+      this.respuestas.push(this.respuesta);
+      this.respuesta = new Respuesta(0, '', 0);
+      
+    }
+    else {
+      this.msjeTam = "Agregue la respuesta";
+    }
+
   }
 
   guardar() {
-    this.ejercicio.enunciado1 = this.ejercicio.enunciado1 + "__________" + this.ejercicio.enunciado2;
-    this.ejercicio.enunciado2 = '';
-    this.service.create(this.ejercicio).subscribe(
-      id => {
-        this.ejercicio.id = id
-        this.service.asoProActEj(this.ejercicio.id, this.currentUser.username, 2).subscribe(
-          success => {
-              this.respuestas.forEach(element => {
-                this.serviceRes.create2(element, this.ejercicio.id).subscribe(
-                      success => {},
-                      error => this.message = "Error: " + JSON.stringify(error)
-                    );
-              });
+    this.guardoRes=true;
+    if (this.actual != -1) {
+      if (this.respuestas.length > 2) {
+        this.ejercicio.enunciado1 = this.ejercicio.enunciado1 + "__________" + this.ejercicio.enunciado2;
+        this.ejercicio.enunciado2 = '';
+        this.service.create(this.ejercicio).subscribe(
+          id => {
+            this.ejercicio.id = id
+            this.service.asoProActEj(this.ejercicio.id, this.currentUser.username, 2).subscribe(
+              success => {
+                this.respuestas.forEach(element => {
+                  this.serviceRes.create2(element, this.ejercicio.id).subscribe(
+                    success => { },
+                    error => this.message = "Error: " + JSON.stringify(error)
+                  );
+                });
+              },
+              error => this.message = "Error: " + JSON.stringify(error)
+            );
           },
           error => this.message = "Error: " + JSON.stringify(error)
         );
-      },
-      error => this.message = "Error: " + JSON.stringify(error)
-    );
-    this.router.navigate(['ejercicio/list']);
+        this.router.navigate(['ejercicio/list']);
+      }
+
+    }else{
+      this.message2='Eliga la respuesta correcta';
+    }
   }
+
+
 }
