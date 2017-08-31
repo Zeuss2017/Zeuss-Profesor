@@ -23,7 +23,11 @@ import { CrearejercicioComponent } from './crearejercicio/crearejercicio.compone
 import { Actividad1Component } from './actividad/actividad1/actividad1.component';
 import { Actividad2Component } from './actividad/actividad2/actividad2.component';
 import { Actividad3Component } from './actividad/actividad3/actividad3.component';
-
+import { ActividadestudianteService } from "./service/actividadestudiante.service";
+import { EjercicioestudianteService } from "./service/ejercicioestudiante.service";
+import { ReportecursoComponent } from './reportecurso/reportecurso.component';
+import { ReporteindividualComponent } from './reporteindividual/reporteindividual.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
 
@@ -40,14 +44,17 @@ import { Actividad3Component } from './actividad/actividad3/actividad3.component
     CrearejercicioComponent,
     Actividad1Component,
     Actividad2Component,
-    Actividad3Component
+    Actividad3Component,
+    ReportecursoComponent,
+    ReporteindividualComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     JsonpModule,
     FormsModule,
-    ZeussRoutingModule
+    ZeussRoutingModule,
+    ChartsModule
   ],
   providers: [
     AuthService,
@@ -57,7 +64,10 @@ import { Actividad3Component } from './actividad/actividad3/actividad3.component
     CursoService,
     EstudianteService,
     EjercicioService,
-    RespuestaService
+    RespuestaService,
+    ActividadestudianteService,
+    EjercicioestudianteService
+    
   ],
   bootstrap: [ZeussComponent]
 })

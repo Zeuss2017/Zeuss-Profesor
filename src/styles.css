@@ -75,6 +75,11 @@ div.container {
     font-size: 25px;
     text-align: center;
 }
+.letra3{
+    font-family: 'Sniglet';
+    font-size: 18px;
+    text-align: center;
+}
 
 .user{
     color:white;
@@ -204,3 +209,4 @@ input[type='radio'] {
 .glyphicon-ok{
     font-size: 20px;
 }
+

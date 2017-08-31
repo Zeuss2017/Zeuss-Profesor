@@ -5,22 +5,22 @@ import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {RestClient} from './rest-client';
-import {Respuesta} from '../model/respuesta.model';
+import {Actividadestudiante} from '../model/actividadestudiante.model';
 import { environment } from "../../environments/environment";
 
 @Injectable()
-export class RespuestaService extends RestClient<Respuesta> {
-    baseURL =  environment.url+"respuesta/";
+export class ActividadestudianteService extends RestClient<Actividadestudiante>{
+
+    baseURL = environment.url+"actividadestudiante/";
 
     constructor(http: Http) {
         super(http);
     }
-
-    create2(obj: Respuesta, idEjercicio:number) {
-        console.log("post " + this.baseURL + " " + JSON.stringify(obj));
-        return this.http.post(this.baseURL + "create2/"+idEjercicio, obj)
+    
+    pedirAct( idEstudiante: number,idActividad:number) {
+        let url = this.baseURL + 'pedirAct/'  + idEstudiante+'/'+idActividad;
+        return this.http.get(url)
             .map((res: Response) => res.json());
     }
-
 
 }

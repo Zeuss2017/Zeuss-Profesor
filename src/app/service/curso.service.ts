@@ -32,5 +32,11 @@ export class CursoService extends RestClient<Curso> {
         return this.http.get(url)
             .map((res: Response) => res.json());
     }
+    pedirActCurso(cursoId: number, act:number) {
+        let url = this.baseURL + 'pedirActCurso/' + cursoId +'/'+act;
+        return this.http.get(url)
+            .map((res: Response) => res.json());
+    }
+    
 
 }
