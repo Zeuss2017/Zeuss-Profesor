@@ -15,10 +15,12 @@ export class ReportecursoComponent implements OnInit {
   message = '';
   currentPath=1;
   curso:Curso=new Curso(0,'','',0);
-  public pieChartLabels: string[] = ['Articulo/Sustantivo', 'Sujeto/Verbo', 'Adjetivo/Sustantivo'];
-  public pieChartDataErrores: number[] = [0, 0, 0];
-  public pieChartDataTiempo: number[] = [0, 0, 0];
+  public pieChartLabels: string[] = [ 'Sujeto/Verbo','Articulo/Sustantivo', 'Adjetivo/Sustantivo'];
+  public pieChartDataErrores: number[] = [30, 30, 30];
+  public pieChartDataTiempo: number[] = [30, 30, 30];
   public pieChartType: string = 'pie';
+
+
 
   public barChartLabels: string[] = ['', '', '', ''];
   public barChartType: string = 'bar';
@@ -68,43 +70,53 @@ export class ReportecursoComponent implements OnInit {
     retrievedCurso=>this.curso = retrievedCurso,
     error => this.message = "Opción no permitida"
     );
-
+    let errores:number[]=[0,0,0];
+    let tiempo:number[]=[0,0,0]
     this.serviceCurso.pedirActCurso(this.idCurso, 1)
       .subscribe(
       retrievedAct => {
         this.actividadesEst1 = retrievedAct
         this.actividadesEst1.forEach(element => {
-          this.pieChartDataErrores[0] = this.pieChartDataErrores[0] + element.errores;
-          this.pieChartDataTiempo[0] = this.pieChartDataTiempo[0] + element.tiempo;
+          errores[0]=errores[0]+ element.errores;
+          tiempo[0]=tiempo[0]+element.tiempo;
+       
         });
+        this.serviceCurso.pedirActCurso(this.idCurso, 2)
+        .subscribe(
+        retrievedAct => {
+          this.actividadesEst2 = retrievedAct
+          this.actividadesEst2.forEach(element => {
+            errores[1]=errores[1]+ element.errores;
+            tiempo[1]=tiempo[1]+element.tiempo;
+          });
+          this.serviceCurso.pedirActCurso(this.idCurso, 3)
+          .subscribe(
+          retrievedAct => {
+            this.actividadesEst3 = retrievedAct
+            this.actividadesEst3.forEach(element => {
+              errores[2]=errores[2]+ element.errores;
+              tiempo[2]=tiempo[2]+element.tiempo;
+            
+            
+            });
+            this.pieChartDataErrores=errores;
+            this.pieChartDataTiempo=tiempo;
+          },
+          error => this.message = "Opción no permitida"
+          );
+        },
+        error => this.message = "Opción no permitida"
+        );
         this.tiempos(1);
       },
       error => this.message = "Opción no permitida"
       );
 
-    this.serviceCurso.pedirActCurso(this.idCurso, 2)
-      .subscribe(
-      retrievedAct => {
-        this.actividadesEst2 = retrievedAct
-        this.actividadesEst2.forEach(element => {
-          this.pieChartDataErrores[1] = this.pieChartDataErrores[1] + element.errores;
-          this.pieChartDataTiempo[1] = this.pieChartDataTiempo[1] + element.tiempo;
-        });
-      },
-      error => this.message = "Opción no permitida"
-      );
+    
 
-    this.serviceCurso.pedirActCurso(this.idCurso, 3)
-      .subscribe(
-      retrievedAct => {
-        this.actividadesEst3 = retrievedAct
-        this.actividadesEst3.forEach(element => {
-          this.pieChartDataErrores[2] = this.pieChartDataErrores[2] + element.errores;
-          this.pieChartDataTiempo[2] = this.pieChartDataTiempo[2] + element.tiempo;
-        });
-      },
-      error => this.message = "Opción no permitida"
-      );
+    
+      
+     
 
 
   }

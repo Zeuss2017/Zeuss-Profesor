@@ -13,9 +13,9 @@ import { Ejercicioestudiante } from "../model/ejercicioestudiante.model";
 })
 export class ReporteindividualComponent implements OnInit {
   //PIE
-  public pieChartLabels: string[] = ['Articulo/Sustantivo', 'Sujeto/Verbo', 'Adjetivo/Sustantivo'];
-  public pieChartDataErrores: number[] = [0, 0, 0];
-  public pieChartDataTiempo: number[] = [0, 0, 0];
+  public pieChartLabels: string[] = ['Sujeto/Verbo','Articulo/Sustantivo', 'Adjetivo/Sustantivo'];
+  public pieChartDataErrores: number[] = [30, 30, 30];
+  public pieChartDataTiempo: number[] = [30, 30, 30];
   public pieChartType: string = 'pie';
   //BARRAS
   public barChartLabels: string[] = [];
@@ -117,34 +117,56 @@ export class ReporteindividualComponent implements OnInit {
   }
 
   public pie() {
+    let errores:number[]=[0,0,0];
+    let tiempo:number[]=[0,0,0];
+  
+    
     this.serviceAct.pedirAct(this.idEstudiante, 1)
       .subscribe(
       retrievedAct => {
         this.actividades[0] = retrievedAct;
-        this.pieChartDataErrores[0] = this.actividades[0].errores;
-        this.pieChartDataTiempo[0] = this.actividades[0].tiempo;
-        this.serviceAct.pedirAct(this.idEstudiante, 2)
-          .subscribe(
-          retrievedAct => {
-            this.actividades[1] = retrievedAct;
-            this.pieChartDataErrores[1] = this.actividades[1].errores;
-            this.pieChartDataTiempo[1] = this.actividades[1].tiempo;
-            this.serviceAct.pedirAct(this.idEstudiante, 3)
-              .subscribe(
-              retrievedAct => {
-                this.actividades[2] = retrievedAct;
-                this.pieChartDataErrores[2] = this.actividades[2].errores;
-                this.pieChartDataTiempo[2] = this.actividades[2].tiempo;
-                this.barra(1);
-              },
-              error => this.message = "Opción no permitida"
-              );
-          },
-          error => this.message = "Opción no permitida"
-          );
+        errores[0] = this.actividades[0].errores;
+        tiempo[0] = this.actividades[0].tiempo;
+        this.act2(errores,tiempo);
       },
-      error => this.message = "Opción no permitida"
+      error => {this.message = "Opción no permitida"
+      this.act2(errores,tiempo);}
       );
+    
+  }
+  public act2(errores:number[],tiempo:number[]){
+    this.serviceAct.pedirAct(this.idEstudiante, 2)
+    .subscribe(
+    retrievedAct3 => {
+      this.actividades[1] = retrievedAct3;
+      errores[1] = this.actividades[1].errores;
+      tiempo[1] = this.actividades[1].tiempo;
+      this.act3(errores,tiempo);
+     
+    },
+    error => {this.message = "Opción no permitida"
+    this.act3(errores,tiempo);}
+    );
+
+    
+  }
+  public act3(errores:number[],tiempo:number[]){
+    this.serviceAct.pedirAct(this.idEstudiante, 3)
+    .subscribe(
+    retrievedAct2 => {
+      this.actividades[2] = retrievedAct2;
+      errores[2] = this.actividades[2].errores;
+      tiempo[2] = this.actividades[2].tiempo;
+      this.pieChartDataErrores=errores;
+      this.pieChartDataTiempo=tiempo;
+      console.log(errores);
+    },
+    error => {this.message = "Opción no permitida"
+    this.pieChartDataErrores=errores;
+    this.pieChartDataTiempo=tiempo;
+      }
+    );
+    this.barra(1);
   }
   public barra(act: number) {
     let data: number[] = [];
@@ -206,9 +228,6 @@ export class ReporteindividualComponent implements OnInit {
       error => this.message = "Opción no permitida"
       );
   }
-
-
-
   // events
   public chartClicked(e: any): void {
     console.log(e);
