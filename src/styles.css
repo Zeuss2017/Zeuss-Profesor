@@ -130,6 +130,14 @@ div.container {
     text-align: center;
 
 }
+
+.subtitulo3{
+    font-size: 18px;
+    color:#454141;
+    font-family: 'Sniglet';
+    text-align: center;
+
+}
 .bordes{
     border-style: solid;
     border-radius: 8px;
@@ -209,4 +217,18 @@ input[type='radio'] {
 .glyphicon-ok{
     font-size: 20px;
 }
-
+.glyphicon-thumbs-up{
+    font-weight: bold;
+    color:green;
+}
+.glyphicon-thumbs-down{
+    font-weight: bold;
+    color:red;
+}
+.hr{
+    border-top-color: blue;
+}
+.panel-title{
+    text-align: center;
+    margin: 10px;
+}

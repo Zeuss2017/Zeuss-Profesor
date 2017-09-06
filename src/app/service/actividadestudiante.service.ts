@@ -23,4 +23,10 @@ export class ActividadestudianteService extends RestClient<Actividadestudiante>{
             .map((res: Response) => res.json());
     }
 
+    promediosCurso( idEstudiante: number) {
+        let url = this.baseURL + 'promediosCurso/'  + idEstudiante;
+        return this.http.get(url)
+            .map((res: Response) => res.json());
+    }
+
 }

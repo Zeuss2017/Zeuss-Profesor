@@ -1,70 +1,215 @@
 <div class="row">
-  <div class="sub">Reporte de {{estudiante.nombre}}</div>
-</div>
-
-<div class="row">
-  <div class="col-sm-1">
-  </div>
-  <div class="col-sm-4">
-    <div class="subtitulo">Errores</div>
-    <div style="display: block">
-      <canvas baseChart [data]="pieChartDataErrores" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)"></canvas>
-    </div>
-  </div>
-  <div class="col-sm-2">
-  </div>
-  <div class="col-sm-4">
-    <div class="subtitulo">Tiempo</div>
-    <div style="display: block">
-      <canvas baseChart [data]="pieChartDataTiempo" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)"></canvas>
-    </div>
-  </div>
-  <div class="col-sm-1">
-  </div>
+    <div class="sub">Reporte de {{estudiante.nombre}}</div>
 </div>
 <br>
-<div align="center">
-<div class="subtitulo">Progreso</div>
-<button type="button" class="btn btn-info letra3" (click)="barra(1)" autofocus>Articulo/Sustantivo</button>
-<button type="button" class="btn btn-info letra3" (click)="barra(2)">Sujeto/Verbo</button>
-<button type="button" class="btn btn-info letra3" (click)="barra(3)">Adjetivo/Sustantivo</button>
-<br><br>
-</div>
-<div class="row">
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="subtitulo2"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">COMPARACIÓN EN EL CURSO</a>
+            </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="row subtitulo2">
+                    En la siguiente tabla se muestra como está el estudiante {{estudiante.nombre}} en comparación a su curso
+                </div>
+                <br>
+                <div class="row">
 
-  <div class="col-sm-7">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                            <div class="table-responsive"> 
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th> </th>
+                                <th>Sujeto/Verbo</th>
+                                <th>Artículo/Sustantivo</th>
+                                <th>Adjetivo/Sustantivo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td align="center">
+                                    ERRORES
+                                </td>
+                                <td align="center">
+                                    <div *ngIf="desempeno[0]">
+                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" font-color="green"></span>
+                                    </div>
+                                    <div *ngIf="!desempeno[0]">
+                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                    </div>
+                                </td>
+                                <td align="center">
+                                    <div *ngIf="desempeno[1]">
+                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                    </div>
+                                    <div *ngIf="!desempeno[1]">
+                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                    </div>
+                                </td>
+                                <td align="center">
+                                    <div *ngIf="desempeno[2]">
+                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                    </div>
+                                    <div *ngIf="!desempeno[2]">
+                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    TIEMPO
+                                </td>
+                                <td align="center">
+                                    <div *ngIf="desempeno[3]">
+                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                    </div>
+                                    <div *ngIf="!desempeno[3]">
+                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                    </div>
+                                </td>
+                                <td align="center">
+                                    <div *ngIf="desempeno[4]">
+                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                    </div>
+                                    <div *ngIf="!desempeno[4]">
+                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                    </div>
+                                </td>
+                                <td align="center">
+                                    <div *ngIf="desempeno[5]">
+                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                    </div>
+                                    <div *ngIf="!desempeno[5]">
+                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                            </div>
+                    </div>
+                    <div class="col-sm-2">
 
+                    </div>
 
-    <div class="letra3">
-
-      <div style="display: block">
-        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-          [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-      </div>
-
+                </div>
+                <br>
+                <div class="row subtitulo2">
+                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" font-color="green"></span>&nbsp;Encima
+                    del promedio del curso
+                    <br>
+                    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Debajo del promedio del
+                    curso
+                    <br>
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>&nbsp;No ha realizado la actividad
+                </div>
+            </div>
+        </div>
     </div>
 
-  </div>
   
-  <div class="col-sm-5">
 
-
-    <div class="letra3">
-
-      <div style="display: block;">
-        <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
-          [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)"></canvas>
-      </div>
-
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="subtitulo2"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">RESUMEN DE ERRORES Y TIEMPOS</a>
+            </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse ">
+            <div class="panel-body">
+                <div class="row subtitulo2">
+                    Cantidad de errores y tiempo que le tomó a {{estudiante.nombre}} en cada actividad
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitulo">Errores</div>
+                        <div style="display: block">
+                            <canvas baseChart [data]="pieChartDataErrores" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                                (chartClick)="chartClicked($event)"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitulo">Tiempo</div>
+                        <div style="display: block">
+                            <canvas baseChart [data]="pieChartDataTiempo" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                                (chartClick)="chartClicked($event)"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+                        
+                                            <button class="btn btn-warning btn-lg letra3" (click)="randomizeType()" style="display: inline-block">Cambiar tipo de gráfico</button>
+                                        </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
-      
-    <button class="btn btn-warning btn-lg letra3" (click)="randomizeType()" style="display: inline-block">Cambiar tipo de gráfico</button>
-  </div>
+  
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="subtitulo2" data-toggle="collapse" data-parent="#accordion" href="#collapse3">PROGRESO</a>
+            </h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse ">
+            <div align="center">
+                <br>
+                <button type="button" class="btn btn-info letra3" (click)="barra(1)" autofocus>Articulo/Sustantivo</button>
+                <button type="button" class="btn btn-info letra3" (click)="barra(2)">Sujeto/Verbo</button>
+                <button type="button" class="btn btn-info letra3" (click)="barra(3)">Adjetivo/Sustantivo</button>
+                <br><br>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-7">
+
+                    <div class="subtitulo3">Tiempo por cada nivel</div>
+                    <div class="letra3">
+
+                        <div style="display: block">
+                            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                                [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-5">
+                        <div class="subtitulo3">Orden de niveles </div>
+
+                    <div class="letra3">
+
+                        <div style="display: block;">
+                            <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                                [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+                                (chartClick)="chartClicked($event)"></canvas>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+
+                    <button class="btn btn-warning btn-lg letra3" (click)="randomizeType2()" style="display: inline-block">Cambiar tipo de gráfico</button>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
 </div>
-

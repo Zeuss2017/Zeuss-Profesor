@@ -6,6 +6,7 @@ import { EstudianteService } from "../service/estudiante.service";
 import { Estudiante } from "../model/estudiante.model";
 import { EjercicioestudianteService } from "../service/ejercicioestudiante.service";
 import { Ejercicioestudiante } from "../model/ejercicioestudiante.model";
+import { Promedioscurso } from "../model/promedioscurso.model";
 
 @Component({
   selector: 'reporteindividual',
@@ -13,7 +14,7 @@ import { Ejercicioestudiante } from "../model/ejercicioestudiante.model";
 })
 export class ReporteindividualComponent implements OnInit {
   //PIE
-  public pieChartLabels: string[] = ['Sujeto/Verbo','Articulo/Sustantivo', 'Adjetivo/Sustantivo'];
+  public pieChartLabels: string[] = ['Sujeto/Verbo', 'Articulo/Sustantivo', 'Adjetivo/Sustantivo'];
   public pieChartDataErrores: number[] = [30, 30, 30];
   public pieChartDataTiempo: number[] = [30, 30, 30];
   public pieChartType: string = 'pie';
@@ -63,7 +64,7 @@ export class ReporteindividualComponent implements OnInit {
       yAxes: [{
         ticks: {
           beginAtZero: true,
-          stepSize : 1
+          stepSize: 1
         },
         scaleLabel: {
           display: true,
@@ -94,8 +95,8 @@ export class ReporteindividualComponent implements OnInit {
   ejercicios1: Array<Ejercicioestudiante>;
   ejercicios2: Array<Ejercicioestudiante>;
   ejercicios3: Array<Ejercicioestudiante>;
-
-
+  promediosCurso: Promedioscurso = new Promedioscurso(0, 0, 0, 0, 0, 0, 0);
+  desempeno: Array<boolean> = [true, true, true, true, true, true];
   constructor(
     private serviceAct: ActividadestudianteService,
     private serviceEstudiante: EstudianteService,
@@ -112,68 +113,72 @@ export class ReporteindividualComponent implements OnInit {
       error => this.message = "Opción no permitida"
       );
     this.pie();
-
-
   }
 
   public pie() {
-    let errores:number[]=[0,0,0];
-    let tiempo:number[]=[0,0,0];
-  
-    
+    let errores: number[] = [0, 0, 0];
+    let tiempo: number[] = [0, 0, 0];
+
+
     this.serviceAct.pedirAct(this.idEstudiante, 1)
       .subscribe(
       retrievedAct => {
         this.actividades[0] = retrievedAct;
         errores[0] = this.actividades[0].errores;
         tiempo[0] = this.actividades[0].tiempo;
-        this.act2(errores,tiempo);
+        this.act2(errores, tiempo);
       },
-      error => {this.message = "Opción no permitida"
-      this.act2(errores,tiempo);}
-      );
-    
-  }
-  public act2(errores:number[],tiempo:number[]){
-    this.serviceAct.pedirAct(this.idEstudiante, 2)
-    .subscribe(
-    retrievedAct3 => {
-      this.actividades[1] = retrievedAct3;
-      errores[1] = this.actividades[1].errores;
-      tiempo[1] = this.actividades[1].tiempo;
-      this.act3(errores,tiempo);
-     
-    },
-    error => {this.message = "Opción no permitida"
-    this.act3(errores,tiempo);}
-    );
-
-    
-  }
-  public act3(errores:number[],tiempo:number[]){
-    this.serviceAct.pedirAct(this.idEstudiante, 3)
-    .subscribe(
-    retrievedAct2 => {
-      this.actividades[2] = retrievedAct2;
-      errores[2] = this.actividades[2].errores;
-      tiempo[2] = this.actividades[2].tiempo;
-      this.pieChartDataErrores=errores;
-      this.pieChartDataTiempo=tiempo;
-      console.log(errores);
-    },
-    error => {this.message = "Opción no permitida"
-    this.pieChartDataErrores=errores;
-    this.pieChartDataTiempo=tiempo;
+      error => {
+      this.message = "Opción no permitida"
+        this.act2(errores, tiempo);
       }
-    );
+      );
+
+  }
+  public act2(errores: number[], tiempo: number[]) {
+    this.serviceAct.pedirAct(this.idEstudiante, 2)
+      .subscribe(
+      retrievedAct3 => {
+        this.actividades[1] = retrievedAct3;
+        errores[1] = this.actividades[1].errores;
+        tiempo[1] = this.actividades[1].tiempo;
+        this.act3(errores, tiempo);
+
+      },
+      error => {
+      this.message = "Opción no permitida"
+        this.act3(errores, tiempo);
+      }
+      );
+
+
+  }
+  public act3(errores: number[], tiempo: number[]) {
+    this.serviceAct.pedirAct(this.idEstudiante, 3)
+      .subscribe(
+      retrievedAct2 => {
+        this.actividades[2] = retrievedAct2;
+        errores[2] = this.actividades[2].errores;
+        tiempo[2] = this.actividades[2].tiempo;
+        this.pieChartDataErrores = errores;
+        this.pieChartDataTiempo = tiempo;
+        console.log(errores);
+      },
+      error => {
+      this.message = "Opción no permitida"
+        this.pieChartDataErrores = errores;
+        this.pieChartDataTiempo = tiempo;
+      }
+      );
     this.barra(1);
+    this.promedios();
   }
   public barra(act: number) {
     let data: number[] = [];
     let dataLine: number[] = [];
     let actividadId: number;
     this.barChartLabels = [];
-    this.lineChartLabels= [];
+    this.lineChartLabels = [];
 
     if (act == 1) {
       actividadId = this.actividades[0].id;
@@ -228,6 +233,38 @@ export class ReporteindividualComponent implements OnInit {
       error => this.message = "Opción no permitida"
       );
   }
+  public promedios() {
+    this.serviceAct.promediosCurso(this.idEstudiante)
+      .subscribe(
+      retrieved => {
+      this.promediosCurso = retrieved;
+      console.log(this.promediosCurso);
+        if (this.promediosCurso.errores1 < this.pieChartDataErrores[0]) {
+          this.desempeno[0] = false;
+          
+        }
+        if (this.promediosCurso.errores2 < this.pieChartDataErrores[1]) {
+          this.desempeno[1] = false;
+        }
+        if (this.promediosCurso.errores3 < this.pieChartDataErrores[2]) {
+          this.desempeno[2] = false;
+        }
+        if (this.promediosCurso.tiempo1 < this.pieChartDataTiempo[0]) {
+          this.desempeno[3] = false;
+        }
+        if (this.promediosCurso.tiempo2 < this.pieChartDataTiempo[1]) {
+          this.desempeno[4] = false;
+        }
+        if (this.promediosCurso.tiempo3 < this.pieChartDataTiempo[2]) {
+          this.desempeno[5] = false;
+        }
+     
+      },
+      error => this.message = "Opción no permitida"
+      );
+
+
+  }
   // events
   public chartClicked(e: any): void {
     console.log(e);
@@ -237,10 +274,17 @@ export class ReporteindividualComponent implements OnInit {
     console.log(e);
   }
   public randomizeType(): void {
-    this.barChartType = this.barChartType === 'bar' ? 'line' : 'bar';
+
     this.pieChartType = this.pieChartType === 'doughnut' ? 'pie' : 'doughnut';
+
+
+  }
+
+  public randomizeType2(): void {
+    this.barChartType = this.barChartType === 'bar' ? 'line' : 'bar';
+
     this.lineChartType = this.barChartType === 'line' ? 'bar' : 'line';
-    
+
   }
 
 }
