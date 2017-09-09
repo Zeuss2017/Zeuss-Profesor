@@ -296,5 +296,4 @@ export class ReporteindividualComponent implements OnInit {
     this.lineChartType = this.barChartType === 'line' ? 'bar' : 'line';
 
   }
-
 }

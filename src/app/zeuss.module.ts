@@ -28,6 +28,7 @@ import { EjercicioestudianteService } from "./service/ejercicioestudiante.servic
 import { ReportecursoComponent } from './reportecurso/reportecurso.component';
 import { ReporteindividualComponent } from './reporteindividual/reporteindividual.component';
 import { ChartsModule } from 'ng2-charts';
+import { QuienessomosComponent } from './quienessomos/quienessomos.component';
 
 @NgModule({
 
@@ -46,7 +47,8 @@ import { ChartsModule } from 'ng2-charts';
     Actividad2Component,
     Actividad3Component,
     ReportecursoComponent,
-    ReporteindividualComponent
+    ReporteindividualComponent,
+    QuienessomosComponent
   ],
   imports: [
     BrowserModule,

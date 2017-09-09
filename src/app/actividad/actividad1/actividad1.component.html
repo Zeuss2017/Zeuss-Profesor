@@ -6,7 +6,7 @@
   <span *ngIf="ejercicio.escenario=='COMIDA'">
       <img src="../assets/Comida.png" alt="Zeuss" height="40px">
       <span class="subtitulo">Comida</span>
-      </span>
+  </span>
 </div>
 
 <hr>
@@ -16,7 +16,8 @@
       <div class="form-group" class="subtitulo2">
         Primera parte del enunciado
         <br><br>
-        <textarea minlength=1 class="form-control" id="exampleTextarea" name="lala" rows="3" maxlength="100" [(ngModel)]="ejercicio.enunciado1" required></textarea>
+        <textarea minlength=1 class="form-control" id="exampleTextarea" name="lala" rows="3" maxlength="100" [(ngModel)]="ejercicio.enunciado1"
+          required></textarea>
       </div>
     </div>
     <div class="col-sm-6">
@@ -54,36 +55,40 @@
           <br><br>
         </div>
       </div>
-      <div class="subtitulo2" style="color:#B40404">
+      <span *ngIf="message!=''">
+      <div class="subtitulo3" style="height: 10px">
+        <span class="alert alert-danger" role="alert" align="center">
         {{message}}
-      </div>
-        
+      </span>
     </div>
+      </span>
 
-    <div class="col-sm-3">
-      <div class="form-group" class="subtitulo2">
-        Segunda parte del enunciado
-        <br><br>
-        <textarea class="form-control" id="exampleTextarea2" name="la" rows="3" maxlength="100" [(ngModel)]="ejercicio.enunciado2"
-          required></textarea>
-      </div>
-      <br>
-      <br>
-      <br><br>
+</div>
 
-    </div>
-    <div class="col-sm-8">
-      <div class="subtitulo2 margenCombo">Nivel
-        <select class="form-control" data-live-search="true" id="enca" name="tipoId" [(ngModel)]="ejercicio.nivel" required>  
+<div class="col-sm-3">
+  <div class="form-group" class="subtitulo2">
+    Segunda parte del enunciado
+    <br><br>
+    <textarea class="form-control" id="exampleTextarea2" name="la" rows="3" maxlength="100" [(ngModel)]="ejercicio.enunciado2"
+      required></textarea>
+  </div>
+  <br>
+  <br>
+  <br><br>
+
+</div>
+<div class="col-sm-8">
+  <div class="subtitulo2 margenCombo">Nivel
+    <select class="form-control" data-live-search="true" id="enca" name="tipoId" [(ngModel)]="ejercicio.nivel" required>  
             <option *ngFor="let i of niveles" [ngValue]="i">{{i}}</option>
-        </select>
-      </div>
-    </div>
+        </select> 1 Fácil - 10 Díficil
+  </div>
+</div>
 
-    <div class="col-sm-4">
-      <div align="center" class="margenBottom">
-        <button type="submit" class=" btn boton btn-outline-warning btn-sm">GUARDAR</button>
-      </div>
-    </div>
-  </form>
+<div class="col-sm-4">
+  <div align="center" class="margenBottom">
+    <button type="submit" class=" btn boton btn-outline-warning btn-sm">GUARDAR</button>
+  </div>
+</div>
+</form>
 </div>

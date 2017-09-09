@@ -1,3 +1,4 @@
+import { QuienessomosComponent } from './quienessomos/quienessomos.component';
 import { EjercicioComponent } from './ejercicio/ejercicio.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -15,6 +16,7 @@ import { Actividad3Component } from "./actividad/actividad3/actividad3.component
 import { ReportecursoComponent } from "./reportecurso/reportecurso.component";
 import { ReporteindividualComponent } from "./reporteindividual/reporteindividual.component";
 
+
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'registro', component: RegistroComponent },
@@ -30,6 +32,7 @@ const routes: Routes = [
     { path: 'actividad/3/:escenario', component: Actividad3Component, canActivate: [AuthGuard] },
     { path: 'curso/reporte/:id', component: ReportecursoComponent, canActivate: [AuthGuard] },
     { path: 'estudiante/reporte/:id', component: ReporteindividualComponent, canActivate: [AuthGuard] },
+    { path: 'quienessomos', component: QuienessomosComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: '/curso/list', pathMatch: 'full' }
 ];
 

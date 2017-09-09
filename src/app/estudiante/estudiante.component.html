@@ -1,7 +1,7 @@
 <br>
 <div class="sub">CURSO: {{curso.nombre}}</div>
 <hr>
-<div class="col-sm-4"  >
+<div class="col-sm-4">
 
 </div>
 
@@ -9,12 +9,13 @@
   <div class="subtitulo">Estudiantes</div>
   <br>
   <ul class="list-group letra2 bordes" *ngFor="let e of estudiantes; let i = index">
-    
+
     <li class="list-group-item ">
-      {{e.nombre}}
-      <a class="negro" [routerLink]="['/estudiante/reporte', e.id]"><span class="glyphicon glyphicon-stats negro"></span></a>
+      {{e.nombre}}&nbsp;&nbsp;
+      <span class="margenLeft">
+      <button type="button" class="btn btn-warning" [routerLink]="['/estudiante/reporte', e.id]" ><span class="glyphicon glyphicon-stats blanco"><span class="blancoFont"> Reporte</span></span></button>
+      </span>
     </li>
-    
   </ul>
 </div>
 

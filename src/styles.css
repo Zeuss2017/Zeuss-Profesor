@@ -38,6 +38,9 @@
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
     background-color:#00c6ff;
 }
+.nav-pills>li.active>a.otro, .nav-pills>li.active>a.otro:focus, .nav-pills>li.active>a>.otro:hover{
+    background-color:#0072ff;
+}
 div.container {
     width: 90%;
     border-radius: 8px;
@@ -58,7 +61,7 @@ div.container {
     color:#DBA901;
     font-family: 'Caesar Dressing';
     text-align: center;
-    margin-bottom: 2cm;
+    margin-bottom: 0.5cm;
 }
 .margenImagen{
    margin-top: 1cm;
@@ -241,4 +244,7 @@ input[type='radio'] {
 .panel-title{
     text-align: center;
     margin: 10px;
+}
+.alert-danger{
+    padding: 10px;
 }

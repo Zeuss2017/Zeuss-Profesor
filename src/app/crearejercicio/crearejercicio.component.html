@@ -26,7 +26,7 @@
     </div>
     <div class="col-sm-4" align="center">
       <div class="col-sm-9" align="right">
-        <button (click)="cambioActividad(2)" class="btn btn-sq-lg btn-success" ><i class="fa fa-user fa-5x"></i>
+        <button (click)="cambioActividad(2)" class="btn btn-sq-lg btn-success"><i class="fa fa-user fa-5x"></i>
                SUJETO<br>VERBO
       </button>
       </div>
@@ -74,14 +74,23 @@
       <div class="col-sm-3" align="left"><br>
         <div *ngIf="escenario=='PIRATAS'"><span class="glyphicon glyphicon-ok" style="color:red"></span>
         </div>
-      
+      </div>
+      <br><br>
     </div>
-    <br><br>
   </div>
-</div>
-
-<div align="right" class="margenBottom">
-  <button type="button" class=" btn boton btn-outline-warning btn-sm" (click)="next()">SIGUIENTE</button>
-</div>
-
+  <br><br>
+  <div class="col-sm-4">
+  </div>
+  <div class="col-sm-4 subtitulo2" align="center">
+    <br>
+    <span *ngIf="message!=''">
+      <div class="alert alert-danger"  role="alert" align="center">
+        {{message}}
+      </div>
+    </span>
+  </div>
+  <div class="col-sm-4" align="right" class="margenBottom">
+    <br>
+    <button type="button" class=" btn boton btn-outline-warning btn-sm" (click)="next()">SIGUIENTE</button>
+  </div>
 </div>

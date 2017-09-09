@@ -1,13 +1,13 @@
 <div class="sub"> CREAR EJERCICIO ARTÍCULO/SUSTANTIVO &nbsp;&nbsp;
-    <span *ngIf="ejercicio.escenario=='PIRATAS'">
+  <span *ngIf="ejercicio.escenario=='PIRATAS'">
     <img src="../assets/Pirata.png" alt="Zeuss" height="40px">
     <span class="subtitulo">Piratas</span>
-    </span>
-    <span *ngIf="ejercicio.escenario=='COMIDA'">
+  </span>
+  <span *ngIf="ejercicio.escenario=='COMIDA'">
         <img src="../assets/Comida.png" alt="Zeuss" height="40px">
         <span class="subtitulo">Comida</span>
-        </span>
-  </div>
+  </span>
+</div>
 <hr>
 <div>
   <form ngNativeValidate (ngSubmit)="guardar()">
@@ -26,9 +26,16 @@
         <div class="col-sm-8" align="center">
           <div class="form-group">
             <input type="text" class="form-control" name="res1" id="res1" #res1="ngModel" placeholder="Respuesta" maxlength="20" [(ngModel)]="respuesta.enunciado">
-            <div class="subtitulo2" style="color:#B40404">
-              {{msjeTam}}
+            <span *ngIf="msjeTam!=''">
+            <div class="subtitulo3" style="margin-top:4px;">
+             
+              <span class="alert alert-danger" role="alert" align="center" style="padding: 2px">
+                {{msjeTam}}
+              </span>
+              
             </div>
+            </span>
+
           </div>
         </div>
         <div class="col-sm-4" align="center">
@@ -51,15 +58,19 @@
       <div *ngIf="guardoRes">
         <div *ngIf="respuestas.length>2; then hay else nohay"></div>
         <ng-template #nohay>
-          <div class="subtitulo2" style="color:#B40404">
-            {{message}}
+          <div class="subtitulo3" style="height: 10px">
+            <span class="alert alert-danger" role="alert" align="center">
+        {{message}}
+      </span>
           </div>
         </ng-template>
         <ng-template #hay>
           <div *ngIf="actual>-1 && respuestas.length>2; then siescogio else noescogio"></div>
           <ng-template #noescogio>
-            <div class="subtitulo2" style="color:#B40404">
-              {{message2}}
+            <div class="subtitulo3" style="height: 10px">
+              <span class="alert alert-danger" role="alert" align="center">
+        {{message2}}
+      </span>
             </div>
           </ng-template>
         </ng-template>
@@ -93,7 +104,7 @@
       <div class="subtitulo2 margenCombo">Nivel
         <select class="form-control" data-live-search="true" id="enca" name="tipoId" [(ngModel)]="ejercicio.nivel" required>  
             <option *ngFor="let i of niveles" [ngValue]="i">{{i}}</option>
-        </select>
+        </select> 1 Fácil - 10 Díficil
       </div>
     </div>
 
