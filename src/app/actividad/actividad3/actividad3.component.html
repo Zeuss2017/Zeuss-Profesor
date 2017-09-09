@@ -1,4 +1,13 @@
-<div class="sub"> CREAR EJERCICIO ACTIVIDAD 3</div>
+<div class="sub"> CREAR EJERCICIO ADJETIVO/SUSTANTIVO &nbsp;&nbsp;
+    <span *ngIf="ejercicio.escenario=='PIRATAS'">
+    <img src="../assets/Pirata.png" alt="Zeuss" height="40px">
+    <span class="subtitulo">Piratas</span>
+    </span>
+    <span *ngIf="ejercicio.escenario=='COMIDA'">
+        <img src="../assets/Comida.png" alt="Zeuss" height="40px">
+        <span class="subtitulo">Comida</span>
+        </span>
+  </div>
 <hr>
 <div>
   <form ngNativeValidate (ngSubmit)="guardar()">

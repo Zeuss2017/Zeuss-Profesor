@@ -122,6 +122,10 @@ export class ReportecursoComponent implements OnInit {
   }
   public randomizeType(): void {
     this.barChartType = this.barChartType === 'bar' ? 'line' : 'bar';
+    
+  }
+  public randomizeType2(): void {
+
     this.pieChartType = this.pieChartType === 'doughnut' ? 'pie' : 'doughnut';
   }
   public tiempos(numAct: number) {

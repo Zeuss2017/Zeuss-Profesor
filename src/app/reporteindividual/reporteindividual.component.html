@@ -6,7 +6,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a class="subtitulo2"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">COMPARACIÓN EN EL CURSO</a>
+                <a class="subtitulo2" data-toggle="collapse" data-parent="#accordion" href="#collapse1">COMPARACIÓN EN EL CURSO</a>
             </h4>
         </div>
         <div id="collapse1" class="panel-collapse collapse">
@@ -19,78 +19,108 @@
 
                     <div class="col-sm-2"></div>
                     <div class="col-sm-8">
-                            <div class="table-responsive"> 
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th> </th>
-                                <th>Sujeto/Verbo</th>
-                                <th>Artículo/Sustantivo</th>
-                                <th>Adjetivo/Sustantivo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td align="center">
-                                    ERRORES
-                                </td>
-                                <td align="center">
-                                    <div *ngIf="desempeno[0]">
-                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" font-color="green"></span>
-                                    </div>
-                                    <div *ngIf="!desempeno[0]">
-                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-                                    </div>
-                                </td>
-                                <td align="center">
-                                    <div *ngIf="desempeno[1]">
-                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                                    </div>
-                                    <div *ngIf="!desempeno[1]">
-                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-                                    </div>
-                                </td>
-                                <td align="center">
-                                    <div *ngIf="desempeno[2]">
-                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                                    </div>
-                                    <div *ngIf="!desempeno[2]">
-                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center">
-                                    TIEMPO
-                                </td>
-                                <td align="center">
-                                    <div *ngIf="desempeno[3]">
-                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                                    </div>
-                                    <div *ngIf="!desempeno[3]">
-                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-                                    </div>
-                                </td>
-                                <td align="center">
-                                    <div *ngIf="desempeno[4]">
-                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                                    </div>
-                                    <div *ngIf="!desempeno[4]">
-                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-                                    </div>
-                                </td>
-                                <td align="center">
-                                    <div *ngIf="desempeno[5]">
-                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                                    </div>
-                                    <div *ngIf="!desempeno[5]">
-                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                        </table>
-                            </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th> </th>
+                                        <th>Sujeto/Verbo</th>
+                                        <th>Artículo/Sustantivo</th>
+                                        <th>Adjetivo/Sustantivo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td align="center">
+                                            ERRORES
+                                        </td>
+                                        <td align="center">
+                                            <div *ngIf="realizo[0]">
+                                                <div *ngIf="desempeno[0]">
+                                                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" font-color="green"></span>
+                                                </div>
+                                                <div *ngIf="!desempeno[0]">
+                                                    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="!realizo[0]">
+                                                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                            </div>
+                                        </td>
+                                        <td align="center">
+                                                <div *ngIf="realizo[1]">
+                                                        <div *ngIf="desempeno[1]">
+                                                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" font-color="green"></span>
+                                                        </div>
+                                                        <div *ngIf="!desempeno[1]">
+                                                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div *ngIf="!realizo[1]">
+                                                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                                    </div>
+                                        </td>
+                                        <td align="center">
+                                                <div *ngIf="realizo[2]">
+                                                        <div *ngIf="desempeno[2]">
+                                                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" font-color="green"></span>
+                                                        </div>
+                                                        <div *ngIf="!desempeno[2]">
+                                                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div *ngIf="!realizo[2]">
+                                                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                                    </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            TIEMPO
+                                        </td>
+                                        <td align="center">
+                                                <div *ngIf="realizo[0]">
+                                                        <div *ngIf="desempeno[3]">
+                                                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" font-color="green"></span>
+                                                        </div>
+                                                        <div *ngIf="!desempeno[3]">
+                                                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div *ngIf="!realizo[0]">
+                                                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                                    </div>
+                                        </td>
+                                        <td align="center">
+                                                <div *ngIf="realizo[1]">
+                                                        <div *ngIf="desempeno[4]">
+                                                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" font-color="green"></span>
+                                                        </div>
+                                                        <div *ngIf="!desempeno[4]">
+                                                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div *ngIf="!realizo[1]">
+                                                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                                    </div>
+                                        </td>
+                                        <td align="center">
+                                                <div *ngIf="realizo[2]">
+                                                        <div *ngIf="desempeno[5]">
+                                                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" font-color="green"></span>
+                                                        </div>
+                                                        <div *ngIf="!desempeno[5]">
+                                                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div *ngIf="!realizo[2]">
+                                                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                                    </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="col-sm-2">
 
@@ -111,13 +141,13 @@
         </div>
     </div>
 
-  
+
 
     <br>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a class="subtitulo2"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">RESUMEN DE ERRORES Y TIEMPOS</a>
+                <a class="subtitulo2" data-toggle="collapse" data-parent="#accordion" href="#collapse2">RESUMEN DE ERRORES Y TIEMPOS</a>
             </h4>
         </div>
         <div id="collapse2" class="panel-collapse collapse ">
@@ -150,14 +180,14 @@
                 </div>
                 <br>
                 <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
-                        
-                                            <button class="btn btn-warning btn-lg letra3" (click)="randomizeType()" style="display: inline-block">Cambiar tipo de gráfico</button>
-                                        </div>
+
+                    <button class="btn btn-warning btn-lg letra3" (click)="randomizeType()" style="display: inline-block">Cambiar tipo de gráfico</button>
+                </div>
             </div>
         </div>
     </div>
 
-  
+
     <br>
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -168,8 +198,8 @@
         <div id="collapse3" class="panel-collapse collapse ">
             <div align="center">
                 <br>
-                <button type="button" class="btn btn-info letra3" (click)="barra(1)" autofocus>Articulo/Sustantivo</button>
-                <button type="button" class="btn btn-info letra3" (click)="barra(2)">Sujeto/Verbo</button>
+                <button type="button" class="btn btn-info letra3" (click)="barra(1)" autofocus>Sujeto/Verbo</button>
+                <button type="button" class="btn btn-info letra3" (click)="barra(2)">Articulo/Sustantivo</button>
                 <button type="button" class="btn btn-info letra3" (click)="barra(3)">Adjetivo/Sustantivo</button>
                 <br><br>
             </div>
@@ -191,7 +221,7 @@
                 </div>
 
                 <div class="col-sm-5">
-                        <div class="subtitulo3">Orden de niveles </div>
+                    <div class="subtitulo3">Orden de niveles </div>
 
                     <div class="letra3">
 
