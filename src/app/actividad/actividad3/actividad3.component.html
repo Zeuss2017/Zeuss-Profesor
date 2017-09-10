@@ -51,8 +51,34 @@
 
     <div class="col-sm-4">
       <div align="center" class="margenBottom">
+          <button type="button" class="btn boton btn-sm" data-toggle="modal" data-target="#myModal3">Ver ejemplo</button>
         <button type="submit" class=" btn boton btn-outline-warning btn-sm">GUARDAR</button>
       </div>
     </div>
   </form>
 </div>
+
+<div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" align="center">Ejemplo Actividad 3</h4>
+        </div>
+        <div class="modal-body" align="center">
+          <span *ngIf="ejercicio.escenario=='PIRATAS'">
+                  <img src="../assets/Ejemplos/Piratas/Actividad3.png" alt="Zeuss" height="440px">
+                </span>
+                <span *ngIf="ejercicio.escenario=='COMIDA'">
+                    <img src="../assets/Ejemplos/Comida/Actividad3.png" alt="Zeuss" height="440px">
+                  </span>     
+  
+  
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn boton2 btn-sm" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
