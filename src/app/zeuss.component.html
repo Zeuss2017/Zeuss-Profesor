@@ -8,7 +8,7 @@
         <ul class="nav nav-pills botonesNav">
           <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav" [routerLink]="['/curso/list']">Cursos</a></li>
           <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav" [routerLink]="['/ejercicio/list']">Ejercicios</a></li>
-          <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav">Ayuda</a></li>
+          <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav" [routerLink]="['/ayuda']">Ayuda</a></li>
         </ul>
       </div>
       <div class="nav navbar-nav navbar-right">
@@ -24,7 +24,7 @@
   </nav>
 </div>
 <div *ngIf="!esUser">
-  <br><br><br><br>
+  <br><br>
 </div>
 <div class="container">
   <router-outlet></router-outlet>

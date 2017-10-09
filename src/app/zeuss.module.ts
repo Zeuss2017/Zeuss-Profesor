@@ -29,6 +29,9 @@ import { ReportecursoComponent } from './reportecurso/reportecurso.component';
 import { ReporteindividualComponent } from './reporteindividual/reporteindividual.component';
 import { ChartsModule } from 'ng2-charts';
 import { QuienessomosComponent } from './quienessomos/quienessomos.component';
+import { AyudaComponent } from './ayuda/ayuda.component';
+import { ManualestudianteComponent } from './manualestudiante/manualestudiante.component';
+import { ModuloestudianteComponent } from './moduloestudiante/moduloestudiante.component';
 
 @NgModule({
 
@@ -48,7 +51,10 @@ import { QuienessomosComponent } from './quienessomos/quienessomos.component';
     Actividad3Component,
     ReportecursoComponent,
     ReporteindividualComponent,
-    QuienessomosComponent
+    QuienessomosComponent,
+    AyudaComponent,
+    ManualestudianteComponent,
+    ModuloestudianteComponent
   ],
   imports: [
     BrowserModule,
