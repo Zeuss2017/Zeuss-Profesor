@@ -1,13 +1,13 @@
 <div class="letra">
-<br>
+  <br>
   <div class="col-md-4 margenImagen" align="center">
-    <a><img src="../../assets/Zeuss.png" alt="Zeuss" height="250px"> </a>
+    <span><img src="../../assets/Zeuss.png" alt="Zeuss" height="250px"> </span>
 
   </div>
   <div class="col-md-6" align="center">
-    <a>
+    <span>
       <div class="titulo">BIENVENIDO</div>
-    </a>
+    </span>
     <form ngNativeValidate class="form-horizontal" (ngSubmit)="login()">
       <div class="form-group">
         <label class="control-label col-sm-4" for="Username">Usuario:</label>
@@ -25,15 +25,16 @@
       <div class="form-group" align="center">
         <button type="submit" class="btn btn-warning btn-lg">Iniciar Sesión</button>
         <button type="button" class="btn btn-default btn-lg" [routerLink]="['/registro']">Registrarse</button>
+
       </div>
     </form>
     <div>
       {{message}}
     </div>
-
   </div>
 
   <div class="col-md-2">
+    <button type="button" class="btn btn-info btn-lg" [routerLink]="['/moduloEstudiante']">Estudiante</button>
 
   </div>
 

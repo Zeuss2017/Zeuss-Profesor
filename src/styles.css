@@ -12,11 +12,12 @@
 .navbar-fixed-bottom{
    
     border-width: 0px;
+    background: white
    /* background: #FAFAFA;*/
-    box-shadow: 1px 1px 1px 1px #009CFF;
-    background: #ECE9E6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /*box-shadow: 1px 1px 1px 1px #009CFF;*/
+   /* background: #ECE9E6;  /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+   /* background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
        
 }
 .navbar-inverse .navbar-brand{
@@ -25,8 +26,21 @@
 .negro{
     color:black;
 }
+.blanco{
+    color:white;
+    font-size: 18px;
+    
+}
+.blancoFont{
+    font-family: 'Sniglet';
+    text-align: center;
+    
+}
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
     background-color:#00c6ff;
+}
+.nav-pills>li.active>a.otro, .nav-pills>li.active>a.otro:focus, .nav-pills>li.active>a>.otro:hover{
+    background-color:#0072ff;
 }
 div.container {
     width: 90%;
@@ -48,7 +62,7 @@ div.container {
     color:#DBA901;
     font-family: 'Caesar Dressing';
     text-align: center;
-    margin-bottom: 2cm;
+    margin-bottom: 0.5cm;
 }
 .margenImagen{
    margin-top: 1cm;
@@ -75,6 +89,11 @@ div.container {
     font-size: 25px;
     text-align: center;
 }
+.letra3{
+    font-family: 'Sniglet';
+    font-size: 18px;
+    text-align: center;
+}
 
 .user{
     color:white;
@@ -90,11 +109,12 @@ div.container {
 }
 .footer{
     
-    color:white;
-    font-size: 35px;
-    font-family: 'Caesar Dressing';
+    color:grey;
+    font-size: 20px;
+    font-family: 'Sniglet';
     text-align: center;
-    height:50px;
+    height:30px;
+ 
 }
 .sub{
     /*color:#DBA901;*/
@@ -120,6 +140,14 @@ div.container {
 }
 .subtitulo2{
     font-size: 22px;
+    color:#454141;
+    font-family: 'Sniglet';
+    text-align: center;
+
+}
+
+.subtitulo3{
+    font-size: 18px;
     color:#454141;
     font-family: 'Sniglet';
     text-align: center;
@@ -190,7 +218,7 @@ input[type='radio'] {
     transform: scale(1.5);
 }
 .margenCombo{
-    margin-left: 40%;
+    margin-left: 30%;
     margin-right: 40%;
 }
 .form-control{
@@ -203,4 +231,26 @@ input[type='radio'] {
 
 .glyphicon-ok{
     font-size: 20px;
+}
+.glyphicon-thumbs-up{
+    font-weight: bold;
+    color:green;
+}
+.glyphicon-thumbs-down{
+    font-weight: bold;
+    color:red;
+}
+.hr{
+    border-top-color: blue;
+}
+.panel-title{
+    text-align: center;
+    margin: 10px;
+}
+.alert-danger{
+    padding: 10px;
+}
+h4{
+    font-family: 'Sniglet';
+    font-size: 30px;
 }

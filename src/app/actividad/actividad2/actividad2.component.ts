@@ -1,27 +1,24 @@
-import { Component, OnInit } from '@angular/core';
 import { Respuesta } from './../../model/respuesta.model';
 import { RespuestaService } from './../../service/respuesta.service';
 import { Profesor } from './../../model/profesor.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EjercicioService } from './../../service/ejercicio.service';
 import { Ejercicio } from './../../model/ejercicio.model';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-actividad2',
+  selector: 'zeuss-actividad2',
   templateUrl: './actividad2.component.html'
 })
 export class Actividad2Component implements OnInit {
   niveles: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   ejercicio: Ejercicio = new Ejercicio(0, '', '', '', '', 0);
-  message = 'Agregue min 3 respuestas';
-  message2 = '';
-  respuesta = new Respuesta(0, '', 0);
-  respuestas: Array<Respuesta> = new Array;
+  message = "";
+  respuesta1 = new Respuesta(0, '', 0);
+  respuesta2 = new Respuesta(0, '', 0);
+  respuesta3 = new Respuesta(0, '', 0);
   currentUser = new Profesor(0, '', '', '');
   correcta = 0;
-  actual: number = -1;
-  msjeTam = '';
-  guardoRes=false;
   constructor(
     private service: EjercicioService,
     private serviceRes: RespuestaService,
@@ -33,61 +30,51 @@ export class Actividad2Component implements OnInit {
     this.ejercicio.escenario = this.route.snapshot.params['escenario'];
     this.currentUser = JSON.parse(localStorage.getItem('USER'));
   }
-
-  change(i) {
-    if (this.actual != -1) {
-      this.respuestas[this.actual].correcta = 0;
-    }
-    this.respuestas[i].correcta = 1;
-    this.actual = i;
-    console.log(this.respuestas);
-  }
-
-  agregar() {
-    
-    if (this.respuesta.enunciado.length > 0) {
-      console.log(this.respuesta.enunciado);
-      this.msjeTam = '';
-      this.respuestas.push(this.respuesta);
-      this.respuesta = new Respuesta(0, '', 0);
-      
+  guardar() {
+    if (this.correcta == 0) {
+      this.message = 'Seleccione la opción correcta';
     }
     else {
-      this.msjeTam = "Agregue la respuesta";
-    }
-
-  }
-
-  guardar() {
-    this.guardoRes=true;
-    if (this.actual != -1) {
-      if (this.respuestas.length > 2) {
-        this.ejercicio.enunciado1 = this.ejercicio.enunciado1 + "__________" + this.ejercicio.enunciado2;
-        this.ejercicio.enunciado2 = '';
-        this.service.create(this.ejercicio).subscribe(
-          id => {
-            this.ejercicio.id = id
-            this.service.asoProActEj(this.ejercicio.id, this.currentUser.username, 2).subscribe(
-              success => {
-                this.respuestas.forEach(element => {
-                  this.serviceRes.create2(element, this.ejercicio.id).subscribe(
-                    success => { },
-                    error => this.message = "Error: " + JSON.stringify(error)
-                  );
-                });
-              },
-              error => this.message = "Error: " + JSON.stringify(error)
-            );
-          },
-          error => this.message = "Error: " + JSON.stringify(error)
-        );
-        this.router.navigate(['ejercicio/list']);
+      if (this.correcta == 1) {
+        this.respuesta1.correcta = 1;
+      }
+      if (this.correcta == 2) {
+        this.respuesta2.correcta = 1;
+      }
+      if (this.correcta == 3) {
+        this.respuesta3.correcta = 1;
       }
 
-    }else{
-      this.message2='Eliga la respuesta correcta';
+      this.ejercicio.enunciado1 = this.ejercicio.enunciado1 + " ____ " + this.ejercicio.enunciado2;
+      this.ejercicio.enunciado2 = '';
+      this.service.create(this.ejercicio).subscribe(
+        id => {
+
+          this.ejercicio.id = id
+          this.service.asoProActEj(this.ejercicio.id, this.currentUser.username, 2).subscribe(
+            success => {
+              this.serviceRes.create2(this.respuesta1, this.ejercicio.id).subscribe(
+                success => {
+                  this.serviceRes.create2(this.respuesta2, this.ejercicio.id).subscribe(
+                    success => {
+                      this.serviceRes.create2(this.respuesta3, this.ejercicio.id).subscribe(
+                        success => { this.router.navigate(['ejercicio/list']); },
+                        error => this.message = "Error: " + JSON.stringify(error)
+                      );
+                    },
+                    error => this.message = "Error: " + JSON.stringify(error)
+                  );
+                },
+                error => this.message = "Error: " + JSON.stringify(error)
+              );
+
+            },
+            error => this.message = "Error: " + JSON.stringify(error)
+          );
+        },
+        error => this.message = "Error: " + JSON.stringify(error)
+      );
+
     }
   }
-
-
 }

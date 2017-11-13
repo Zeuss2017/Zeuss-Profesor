@@ -6,4 +6,5 @@
 export const environment = {
   production: false,
   url:"http://174.138.36.65:8080/Zeuss/webresources/"
+  //url:"http://localhost:8080/Zeuss-Servidor/webresources/"
 };

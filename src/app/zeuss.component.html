@@ -8,20 +8,31 @@
         <ul class="nav nav-pills botonesNav">
           <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav" [routerLink]="['/curso/list']">Cursos</a></li>
           <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav" [routerLink]="['/ejercicio/list']">Ejercicios</a></li>
-          <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav">Ayuda</a></li>
+          <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav" [routerLink]="['/ayuda']">Ayuda</a></li>
         </ul>
       </div>
-      <div class="nav navbar-nav navbar-right user">
-        <div (click)="logout()">&nbsp;<span class="glyphicon glyphicon-log-in"></span>&nbsp;</div>
+      <div class="nav navbar-nav navbar-right">
+        <ul class="nav nav-pills botonesNav">
+          <li role="presentation" [routerLinkActive]="['active']"><a class="botonesNav otro"  [routerLink]="['/quienessomos']">Quiénes somos</a></li>
+          <li role="presentation" [routerLinkActive]="['active']">
+            <span class="botonesNav"  (click)="logout()" class="user" >&nbsp;<span class="glyphicon glyphicon-log-in" style="margin-top:8px"></span>&nbsp;</span>
+          </li>
+          </ul>
       </div>
+      
     </div>
   </nav>
 </div>
-<div class="container">
-    <router-outlet></router-outlet>
+<div *ngIf="!esUser">
+  <br><br>
 </div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
 <div class="footer_bottom_nav navbar-fixed-bottom">
   <div *ngIf="esUser">
-    <div class="footer"><img src="../assets/Zeuss Horizontal.png" alt="Zeuss" height="48px"> </div>
+    
+    <div class="footer"><img src="../assets/Zeuss Horizontal.png" alt="Zeuss" height="28px"></div>
   </div>
 </div>

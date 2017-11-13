@@ -12,7 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
     templateUrl: 'zeuss.component.html'
 })
 export class ZeussComponent {
-    
+
     esUser=false;
     currentUser=null;
     

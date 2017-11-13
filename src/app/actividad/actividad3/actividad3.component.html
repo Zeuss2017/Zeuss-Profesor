@@ -1,4 +1,13 @@
-<div class="sub"> CREAR EJERCICIO ACTIVIDAD 3</div>
+<div class="sub"> CREAR EJERCICIO ADJETIVO/SUSTANTIVO &nbsp;&nbsp;
+    <span *ngIf="ejercicio.escenario=='PIRATAS'">
+    <img src="../assets/Pirata.png" alt="Zeuss" height="40px">
+    <span class="subtitulo">Piratas</span>
+    </span>
+    <span *ngIf="ejercicio.escenario=='COMIDA'">
+        <img src="../assets/Comida.png" alt="Zeuss" height="40px">
+        <span class="subtitulo">Comida</span>
+        </span>
+  </div>
 <hr>
 <div>
   <form ngNativeValidate (ngSubmit)="guardar()">
@@ -36,13 +45,40 @@
         <select class="form-control" data-live-search="true" id="enca" name="tipoId" [(ngModel)]="ejercicio.nivel" required>  
             <option *ngFor="let i of niveles" [ngValue]="i">{{i}}</option>
         </select>
+          1 Fácil - 10 Díficil
       </div>
     </div>
 
     <div class="col-sm-4">
       <div align="center" class="margenBottom">
+          <button type="button" class="btn boton btn-sm" data-toggle="modal" data-target="#myModal3">Ver ejemplo</button>
         <button type="submit" class=" btn boton btn-outline-warning btn-sm">GUARDAR</button>
       </div>
     </div>
   </form>
 </div>
+
+<div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" align="center">Ejemplo Actividad 3</h4>
+        </div>
+        <div class="modal-body" align="center">
+          <span *ngIf="ejercicio.escenario=='PIRATAS'">
+                  <img src="../assets/Ejemplos/Piratas/Actividad3.png" alt="Zeuss" height="440px">
+                </span>
+                <span *ngIf="ejercicio.escenario=='COMIDA'">
+                    <img src="../assets/Ejemplos/Comida/Actividad3.png" alt="Zeuss" height="440px">
+                  </span>     
+  
+  
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn boton2 btn-sm" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

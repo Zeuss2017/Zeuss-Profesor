@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="sub">Reporte de {{curso.nombre}}</div>
+</div>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default bordes">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="subtitulo2" data-toggle="collapse" data-parent="#accordion" href="#collapse1">ERRORES Y TIEMPOS</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-1">
+          </div>
+          <div class="col-sm-4">
+            <div class="subtitulo">Errores</div>
+            <div style="display: block">
+              <canvas baseChart [data]="pieChartDataErrores" [labels]="pieChartLabels" [chartType]="pieChartType"></canvas>
+            </div>
+          </div>
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-4">
+            <div class="subtitulo">Tiempo</div>
+            <div style="display: block">
+              <canvas baseChart [data]="pieChartDataTiempo" [labels]="pieChartLabels" [chartType]="pieChartType"></canvas>
+            </div>
+          </div>
+          <div class="col-sm-1">
+          </div>
+          <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+            <button class="btn btn-warning btn-lg letra3" (click)="randomizeType2()" style="display: inline-block">Cambiar tipo de gráfico</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="panel panel-default bordes">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="subtitulo2" data-toggle="collapse" data-parent="#accordion" href="#collapse2">TIEMPO POR ACTIVIDAD</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-2">
+
+          </div>
+          <div class="col-sm-8" align="center">
+            <button type="button" class="btn btn-info letra3" (click)="tiempos(1)" autofocus>Sujeto/Verbo</button>
+            <button type="button" class="btn btn-info letra3" (click)="tiempos(2)">Articulo/Sustantivo</button>
+            <button type="button" class="btn btn-info letra3" (click)="tiempos(3)">Adjetivo/Sustantivo</button>
+            <br><br>
+
+            <div class="letra3">
+
+              <div style="display: block">
+                <canvas baseChart class="letra3" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                  [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-sm-2">
+          </div>
+
+          <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+            <button class="btn btn-warning btn-lg letra3" (click)="randomizeType()" style="display: inline-block">Cambiar tipo de gráfico</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
